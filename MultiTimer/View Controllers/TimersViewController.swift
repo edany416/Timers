@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import UserNotifications
 
 class TimersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var timersTableView: UITableView!
@@ -22,7 +24,7 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewWillAppear(animated)
         timersTableView.reloadData()
     }
-    
+
     // Mark: table view methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timersArray.count
@@ -34,7 +36,7 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
         let timer = timersArray.element(atIndex: indexPath.row)
         cell.timerCellDelegate = timer
         cell.timerNameLabel.text = timer.name
-        cell.elapsedTimeLabel.text = timer.elapsedTime.timeString()
+        cell.elapsedTimeLabel.text = TimeConverter.convertToString(fromSeconds: timer.secondsRemaining)
         cell.resetView.setColor(to: Constants.darkRedColor)
         timer.displayDelegate = cell.elapsedTimeLabel
         return cell

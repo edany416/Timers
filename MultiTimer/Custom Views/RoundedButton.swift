@@ -24,13 +24,4 @@ class RoundedButton: UIButton {
         self.layer.cornerRadius = self.bounds.height/2
         self.titleLabel?.adjustsFontSizeToFitWidth = true
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

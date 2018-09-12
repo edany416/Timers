@@ -9,7 +9,6 @@
 import UIKit
 
 class TimerLabel: UILabel, TimerDisplayDelegate {
-   
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -20,14 +19,14 @@ class TimerLabel: UILabel, TimerDisplayDelegate {
         setup()
     }
     
-    func timeRemaining(asString time: String) {
-        self.text = time
+    func timerUpdated(toTime secondsLeft: Int) {
+        let timeString = TimeConverter.convertToString(fromSeconds: secondsLeft)
+        self.text = timeString
     }
     
     private func setup() {
         self.adjustsFontSizeToFitWidth = true
-        self.textColor = Constants.lighterDarkBlueColor
-        self.font = UIFont.monospacedDigitSystemFont(ofSize: 100, weight: UIFont.Weight.thin)
+        self.textColor = Constants.darkBlueColor
+        self.font = UIFont.monospacedDigitSystemFont(ofSize: 75, weight: UIFont.Weight.thin)
     }
-    
 }

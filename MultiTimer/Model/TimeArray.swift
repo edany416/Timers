@@ -17,7 +17,7 @@ struct TimerArray {
     }
     mutating func append(newElement timer: MTTimer) {
         timerArray.append(timer)
-        timerArray.sort(by: <)
+        //timerArray.sort(by: <)
     }
     
     func element(atIndex index: Int) -> MTTimer {

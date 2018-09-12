@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class TimerDisplayTableViewCell: UITableViewCell {
 
     
@@ -17,6 +16,7 @@ class TimerDisplayTableViewCell: UITableViewCell {
     @IBOutlet weak var timerNameLabel: UILabel!
     @IBOutlet weak var resetLabel: UILabel!
     @IBOutlet weak var pauseLabel: UILabel!
+    
     
     var timerCellDelegate: TimerCellDelegate?
     
@@ -42,16 +42,16 @@ class TimerDisplayTableViewCell: UITableViewCell {
     @objc private func pauseViewTapped() {
         if pauseLabel.text! == "Pause" {
             pauseLabel.text! = "Resume"
-            timerCellDelegate?.pause()
+            timerCellDelegate?.pauseTapped()
         } else {
             pauseLabel.text = "Pause"
-            timerCellDelegate?.resume()
+            timerCellDelegate?.resumeTapped()
         }
     }
     
     @objc private func resetViewTapped() {
         pauseLabel.text = "Pause"
-        timerCellDelegate?.reset()
+        timerCellDelegate?.resetTapped()
     }
 
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TimerCellDelegate {
-    func pause()
-    func resume()
-    func reset()
+    func pauseTapped()
+    func resumeTapped()
+    func resetTapped()
 }

@@ -7,81 +7,81 @@
 //
 
 import Foundation
+import UserNotifications
 
-class MTTimer: Equatable, TimerCellDelegate {
-    
-    private var endTime: Date!
-    private var secondsLeft: Int
-    private var initialTime: Int
-    private var timer: Timer!
-    private var secondPassed = false
-    var elapsedTime: MTTime {
-        get {
-            return MTTime(fromSeconds: secondsLeft)
-        }
-    }
+enum TimerMode {
+    case Running
+    case Paused
+    case Finished
+}
+
+class MTTimer: TimerCellDelegate {
     var displayDelegate: TimerDisplayDelegate?
     var name: String?
-    var isPaused = false
     
-    init(withTime time: MTTime, andName name: String?) {
-        initialTime = time.timeInSeconds()
-        secondsLeft = initialTime
-        endTime = Date(timeIntervalSinceNow: Double(initialTime))
+    private var startTime = NSDate().timeIntervalSince1970
+    private var actualSecondsRemaining: Int!
+    private var alarm = MTAlarm()
+    private var mode: TimerMode!
+    private var elapsedTime = 0
+    private var totalTime: Int!
+    private var timer: Timer!
+    var secondsRemaining: Int {
+        get {
+            if mode != .Finished {
+                let now = NSDate().timeIntervalSince1970
+                elapsedTime = Int(now - startTime)
+                return actualSecondsRemaining - elapsedTime
+            } else {
+                return 0
+            }
+        }
+    }
+
+    init(withTotalTimeInSeconds seconds: Int, timerName name: String?) {
+        totalTime = seconds
+        actualSecondsRemaining = seconds
         if let timerName = name {
             self.name = timerName
         }
         initTimer()
     }
     
-    @objc private func updateTime() {
-        if !secondPassed {
-            displayDelegate?.timeRemaining(asString: elapsedTime.timeString()!)
-            secondPassed = true
-        } else {
-            if secondsLeft > 0 {
-                secondsLeft = secondsLeft - 1
-                displayDelegate?.timeRemaining(asString: elapsedTime.timeString()!)
-            }
-            
-        }
-        
-    }
-    
-    func pause() {
-        if isPaused == false {
-            timer.invalidate()
-            isPaused = true
-            secondPassed = false
-        }
-    }
-
-    func reset() {
-        timer.invalidate()
-        secondsLeft = initialTime
-        isPaused = false
-        secondPassed = false
-        initTimer()
-    }
-    
-    func resume() {
-        initTimer()
-        isPaused = false
-    }
-    
     private func initTimer() {
+        startTime = NSDate().timeIntervalSince1970
+        mode = .Running
+        alarm.triggerAlarmAfter(timerInterval: Double(actualSecondsRemaining))
         timer = Timer()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         timer.fire()
         RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
     }
     
-    // Mark - Equatable Methods
-    static func == (lhs: MTTimer, rhs: MTTimer) -> Bool {
-        return lhs == rhs
+    @objc private func updateTime() {
+        displayDelegate?.timerUpdated(toTime: secondsRemaining)
+        if secondsRemaining <= 0 {
+            timer.invalidate()
+            mode = .Finished
+            
+        }
     }
     
-    static func < (lhs: MTTimer, rhs: MTTimer) -> Bool {
-        return lhs.endTime < rhs.endTime
+    // Mark - TimerCellDelegate Methods
+    func pauseTapped() {
+        actualSecondsRemaining = actualSecondsRemaining - elapsedTime
+        alarm.cancelPendingAlarm()
+        timer.invalidate()
+        mode = .Paused
+    }
+    
+    func resumeTapped() {
+        initTimer()
+        mode = .Running
+    }
+    
+    func resetTapped() {
+        timer.invalidate()
+        actualSecondsRemaining = totalTime
+        initTimer()
     }
 }

@@ -62,15 +62,6 @@ class AddTimerViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     // Mark: Action methods
-    @IBAction func startButtonTapped(_ sender: Any) {
-        let hours = timerPickerView.selectedRow(inComponent: Constants.HourComponent)
-        let minutes = timerPickerView.selectedRow(inComponent: Constants.MinuteComponent)
-        let seconds = timerPickerView.selectedRow(inComponent: Constants.SecondsComponent)
-        let time = MTTime(fromHours: hours, minutes: minutes, seconds: seconds)
-        timer = MTTimer(withTime: time, andName: timerNameTextField.text)
-    }
-    
-    
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -80,8 +71,8 @@ class AddTimerViewController: UIViewController, UIPickerViewDataSource, UIPicker
             let hours = timerPickerView.selectedRow(inComponent: Constants.HourComponent)
             let minutes = timerPickerView.selectedRow(inComponent: Constants.MinuteComponent)
             let seconds = timerPickerView.selectedRow(inComponent: Constants.SecondsComponent)
-            let time = MTTime(fromHours: hours, minutes: minutes, seconds: seconds)
-            timer = MTTimer(withTime: time, andName: timerNameTextField.text)
+            let totalTimeInSeconds = TimeConverter.convertToSeconds(fromHours: hours, minutes: minutes, seconds: seconds)
+            timer = MTTimer(withTotalTimeInSeconds: totalTimeInSeconds, timerName: timerNameTextField.text)
         }
     }
 }

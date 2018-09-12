@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C39FC752147189600347930 /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C39FC742147189600347930 /* TimeConverter.swift */; };
+		8C39FC80214752CA00347930 /* MTAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C39FC7F214752CA00347930 /* MTAlarm.swift */; };
+		8C39FC8221476CCA00347930 /* timeup.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C39FC8121476CC900347930 /* timeup.wav */; };
+		8C39FC862148335300347930 /* TopBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C39FC852148335300347930 /* TopBorderView.swift */; };
 		8C43EFCE212E06D10012577A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43EFCD212E06D10012577A /* AppDelegate.swift */; };
 		8C43EFD3212E06D10012577A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43EFD1212E06D10012577A /* Main.storyboard */; };
 		8C43EFD5212E06D30012577A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C43EFD4212E06D30012577A /* Assets.xcassets */; };
 		8C43EFD8212E06D30012577A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43EFD6212E06D30012577A /* LaunchScreen.storyboard */; };
 		8C43EFE5212E21EC0012577A /* MTTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43EFE4212E21EC0012577A /* MTTimer.swift */; };
-		8C43EFE9212E2D1B0012577A /* MTTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43EFE8212E2D1B0012577A /* MTTime.swift */; };
 		8C43EFEB212E39900012577A /* TimeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43EFEA212E39900012577A /* TimeArray.swift */; };
 		8C43F0052136370B0012577A /* ShadowedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F0042136370B0012577A /* ShadowedView.swift */; };
 		8C43F00A21372FAF0012577A /* TimersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F00921372FAF0012577A /* TimersViewController.swift */; };
@@ -30,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C39FC742147189600347930 /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
+		8C39FC7F214752CA00347930 /* MTAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAlarm.swift; sourceTree = "<group>"; };
+		8C39FC8121476CC900347930 /* timeup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = timeup.wav; sourceTree = "<group>"; };
+		8C39FC852148335300347930 /* TopBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBorderView.swift; sourceTree = "<group>"; };
 		8C43EFCA212E06D10012577A /* MultiTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C43EFCD212E06D10012577A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C43EFD2212E06D10012577A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,7 +44,6 @@
 		8C43EFD7212E06D30012577A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C43EFD9212E06D30012577A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C43EFE4212E21EC0012577A /* MTTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTimer.swift; sourceTree = "<group>"; };
-		8C43EFE8212E2D1B0012577A /* MTTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTime.swift; sourceTree = "<group>"; };
 		8C43EFEA212E39900012577A /* TimeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeArray.swift; sourceTree = "<group>"; };
 		8C43F0042136370B0012577A /* ShadowedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShadowedView.swift; path = ../../../../../.Trash/ShadowedView.swift; sourceTree = "<group>"; };
 		8C43F00921372FAF0012577A /* TimersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimersViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +71,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C39FC782147485000347930 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8C43EFC1212E06D10012577A = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +97,7 @@
 		8C43EFCC212E06D10012577A /* MultiTimer */ = {
 			isa = PBXGroup;
 			children = (
+				8C39FC782147485000347930 /* Extensions */,
 				8C43F0132137B2CB0012577A /* Delegates */,
 				8C43F00821372F8A0012577A /* View Controllers */,
 				8C43EFEE212E3BE40012577A /* Custom Views */,
@@ -94,6 +108,7 @@
 				8C43EFD9212E06D30012577A /* Info.plist */,
 				8C43EFCD212E06D10012577A /* AppDelegate.swift */,
 				8C43F026213A18D10012577A /* Notes.rtf */,
+				8C39FC8121476CC900347930 /* timeup.wav */,
 			);
 			path = MultiTimer;
 			sourceTree = "<group>";
@@ -102,9 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				8C43EFE4212E21EC0012577A /* MTTimer.swift */,
-				8C43EFE8212E2D1B0012577A /* MTTime.swift */,
 				8C43EFEA212E39900012577A /* TimeArray.swift */,
 				8C43F00D213733FB0012577A /* Constants.swift */,
+				8C39FC742147189600347930 /* TimeConverter.swift */,
+				8C39FC7F214752CA00347930 /* MTAlarm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +132,7 @@
 				8C43F0042136370B0012577A /* ShadowedView.swift */,
 				8C43F00F213767F20012577A /* UnderlineTextField.swift */,
 				8C43F035213CF4140012577A /* UnderlinedView.swift */,
+				8C39FC852148335300347930 /* TopBorderView.swift */,
 				8C43F01E213909190012577A /* TimerLabel.swift */,
 				8C43F02E213CBF930012577A /* CircleStrokedView.swift */,
 				8C43F033213CCD860012577A /* TimerDisplayTableViewCell.swift */,
@@ -202,6 +219,7 @@
 				8C43EFD8212E06D30012577A /* LaunchScreen.storyboard in Resources */,
 				8C43EFD5212E06D30012577A /* Assets.xcassets in Resources */,
 				8C43EFD3212E06D10012577A /* Main.storyboard in Resources */,
+				8C39FC8221476CCA00347930 /* timeup.wav in Resources */,
 				8C43F027213A18D10012577A /* Notes.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,16 +232,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C43F010213767F20012577A /* UnderlineTextField.swift in Sources */,
+				8C39FC80214752CA00347930 /* MTAlarm.swift in Sources */,
 				8C43F00C213733700012577A /* AddTimerViewController.swift in Sources */,
 				8C43EFCE212E06D10012577A /* AppDelegate.swift in Sources */,
+				8C39FC752147189600347930 /* TimeConverter.swift in Sources */,
 				8C43F01F213909190012577A /* TimerLabel.swift in Sources */,
 				8C43EFE5212E21EC0012577A /* MTTimer.swift in Sources */,
 				8C43EFEB212E39900012577A /* TimeArray.swift in Sources */,
 				8C43F01D213907C40012577A /* TimerDisplayDelegate.swift in Sources */,
 				8C43F034213CCD860012577A /* TimerDisplayTableViewCell.swift in Sources */,
-				8C43EFE9212E2D1B0012577A /* MTTime.swift in Sources */,
 				8C43F00A21372FAF0012577A /* TimersViewController.swift in Sources */,
 				8C43F02F213CBF930012577A /* CircleStrokedView.swift in Sources */,
+				8C39FC862148335300347930 /* TopBorderView.swift in Sources */,
 				8C43F0122137AE3D0012577A /* RoundedButton.swift in Sources */,
 				8C43F0052136370B0012577A /* ShadowedView.swift in Sources */,
 				8C43F0152137B39F0012577A /* TimerCellDelegate.swift in Sources */,

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TimerDisplayDelegate {
-    func timeRemaining(asString time: String)
+    func timerUpdated(toTime secondsLeft: Int)
 }

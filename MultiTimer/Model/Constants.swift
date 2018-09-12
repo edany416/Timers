@@ -18,7 +18,7 @@ struct Constants {
     static let MinuteComponent = 1
     static let SecondsComponent = 2
     static let DefaultLineWidth = CGFloat(2.0)
-    static let darkBlueColor = #colorLiteral(red: 0.1725490196, green: 0.2431372549, blue: 0.3137254902, alpha: 1)
+    static let darkBlueColor = #colorLiteral(red: 0, green: 0.0431372549, blue: 0.09411764706, alpha: 1)
     static let lighterDarkBlueColor = #colorLiteral(red: 0.2039215686, green: 0.2862745098, blue: 0.368627451, alpha: 1)
     static let darkRedColor = #colorLiteral(red: 0.7529411765, green: 0.2235294118, blue: 0.168627451, alpha: 1)
     static let lighterDarkRedColor = #colorLiteral(red: 0.7913910151, green: 0.1851300001, blue: 0.2209409177, alpha: 1)
