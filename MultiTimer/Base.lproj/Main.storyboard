@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DZI-31-O4J">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,94 +18,82 @@
             <objects>
                 <viewController id="kh5-5f-Xgu" customClass="TimersViewController" customModule="MultiTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jYK-sn-PzQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UEk-53-dzB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Test Cell" rowHeight="118" id="Vxy-O8-fbs" customClass="TimerDisplayTableViewCell" customModule="MultiTimer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="118"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Test Cell" rowHeight="169" id="Vxy-O8-fbs" customClass="TimerDisplayTableViewCell" customModule="MultiTimer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="169"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vxy-O8-fbs" id="tiZ-u1-YSk">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="118"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lH-av-BoM" customClass="ShadowedView" customModule="MultiTimer" customModuleProvider="target">
-                                                    <rect key="frame" x="5" y="5" width="310" height="108"/>
+                                                    <rect key="frame" x="5" y="5" width="365" height="159"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JkC-2w-T1u">
-                                                    <rect key="frame" x="15" y="11" width="290" height="96"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="147"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPe-qz-Mpm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="290" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="24"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                            <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.1333333333" green="0.14901960780000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CS-m9-ugc" customClass="TimerLabel" customModule="MultiTimer" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="24" width="290" height="36"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CS-m9-ugc" customClass="TimerLabel" customModule="MultiTimer" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="24" width="345" height="61.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="75"/>
+                                                            <color key="textColor" red="0.1333333333" green="0.14901960780000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DF4-xf-lf5">
-                                                            <rect key="frame" x="0.0" y="60" width="290" height="36"/>
+                                                            <rect key="frame" x="0.0" y="85.5" width="345" height="61.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="woY-nr-7gX" userLabel="Reset View">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="145" height="36"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="172.5" height="61.5"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vm0-eX-EU8" userLabel="Reset Action View" customClass="CircleStrokedView" customModule="MultiTimer" customModuleProvider="target">
-                                                                            <rect key="frame" x="55" y="0.0" width="36" height="36"/>
-                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzQ-nO-M65" customClass="TimerActionButton" customModule="MultiTimer" customModuleProvider="target">
+                                                                            <rect key="frame" x="56" y="0.0" width="61.5" height="61.5"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" secondItem="Vm0-eX-EU8" secondAttribute="height" multiplier="1:1" id="xa5-Sx-uIg"/>
+                                                                                <constraint firstAttribute="width" secondItem="HzQ-nO-M65" secondAttribute="height" multiplier="1:1" id="HoP-uI-zic"/>
                                                                             </constraints>
-                                                                        </view>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wns-Ty-IMY">
-                                                                            <rect key="frame" x="51.5" y="8" width="43.5" height="20.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <color key="textColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                            <state key="normal" title="Reset"/>
+                                                                            <connections>
+                                                                                <action selector="leftButtonTapped:" destination="Vxy-O8-fbs" eventType="touchUpInside" id="52q-sD-DKA"/>
+                                                                            </connections>
+                                                                        </button>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="Vm0-eX-EU8" firstAttribute="height" secondItem="woY-nr-7gX" secondAttribute="height" id="G2B-AK-CbW"/>
-                                                                        <constraint firstItem="wns-Ty-IMY" firstAttribute="centerX" secondItem="woY-nr-7gX" secondAttribute="centerX" id="R42-SS-xSo"/>
-                                                                        <constraint firstItem="Vm0-eX-EU8" firstAttribute="centerY" secondItem="woY-nr-7gX" secondAttribute="centerY" id="TP5-2K-yZg"/>
-                                                                        <constraint firstItem="wns-Ty-IMY" firstAttribute="centerY" secondItem="woY-nr-7gX" secondAttribute="centerY" id="xsg-WP-tOF"/>
-                                                                        <constraint firstItem="Vm0-eX-EU8" firstAttribute="centerX" secondItem="woY-nr-7gX" secondAttribute="centerX" id="z9g-br-iun"/>
+                                                                        <constraint firstItem="HzQ-nO-M65" firstAttribute="height" secondItem="woY-nr-7gX" secondAttribute="height" id="AhP-Tg-iNx"/>
+                                                                        <constraint firstItem="HzQ-nO-M65" firstAttribute="centerY" secondItem="woY-nr-7gX" secondAttribute="centerY" id="Yrv-Xs-KwY"/>
+                                                                        <constraint firstItem="HzQ-nO-M65" firstAttribute="centerX" secondItem="woY-nr-7gX" secondAttribute="centerX" id="aJy-yt-XmU"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txT-v7-0uq" userLabel="Pause Resume View">
-                                                                    <rect key="frame" x="145" y="0.0" width="145" height="36"/>
+                                                                    <rect key="frame" x="172.5" y="0.0" width="172.5" height="61.5"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5p-Gh-YqC" userLabel="Pause Action View" customClass="CircleStrokedView" customModule="MultiTimer" customModuleProvider="target">
-                                                                            <rect key="frame" x="55" y="0.0" width="36" height="36"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pause" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEU-F3-HWq">
-                                                                                    <rect key="frame" x="-5.5" y="8" width="46.5" height="20.5"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ql7-Sk-2Tl" customClass="TimerActionButton" customModule="MultiTimer" customModuleProvider="target">
+                                                                            <rect key="frame" x="56" y="0.0" width="61.5" height="61.5"/>
                                                                             <constraints>
-                                                                                <constraint firstItem="NEU-F3-HWq" firstAttribute="centerY" secondItem="z5p-Gh-YqC" secondAttribute="centerY" id="1jV-dZ-z62"/>
-                                                                                <constraint firstAttribute="width" secondItem="z5p-Gh-YqC" secondAttribute="height" multiplier="1:1" id="Ii7-tu-8wp"/>
-                                                                                <constraint firstItem="NEU-F3-HWq" firstAttribute="centerX" secondItem="z5p-Gh-YqC" secondAttribute="centerX" id="TZG-Vm-jOX"/>
+                                                                                <constraint firstAttribute="width" secondItem="Ql7-Sk-2Tl" secondAttribute="height" multiplier="1:1" id="xHN-Jy-djg"/>
                                                                             </constraints>
-                                                                        </view>
+                                                                            <state key="normal" title="Pause"/>
+                                                                            <connections>
+                                                                                <action selector="rightButtonTapped:" destination="Vxy-O8-fbs" eventType="touchUpInside" id="bfl-px-6B1"/>
+                                                                            </connections>
+                                                                        </button>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="z5p-Gh-YqC" firstAttribute="height" secondItem="txT-v7-0uq" secondAttribute="height" id="Djg-88-1lb"/>
-                                                                        <constraint firstItem="z5p-Gh-YqC" firstAttribute="centerX" secondItem="txT-v7-0uq" secondAttribute="centerX" id="YFt-dy-lmz"/>
-                                                                        <constraint firstItem="z5p-Gh-YqC" firstAttribute="centerY" secondItem="txT-v7-0uq" secondAttribute="centerY" id="oub-vE-V5z"/>
+                                                                        <constraint firstItem="Ql7-Sk-2Tl" firstAttribute="height" secondItem="txT-v7-0uq" secondAttribute="height" id="FGP-Mj-42G"/>
+                                                                        <constraint firstItem="Ql7-Sk-2Tl" firstAttribute="centerY" secondItem="txT-v7-0uq" secondAttribute="centerY" id="lkl-yZ-jLR"/>
+                                                                        <constraint firstItem="Ql7-Sk-2Tl" firstAttribute="centerX" secondItem="txT-v7-0uq" secondAttribute="centerX" id="qTW-jD-YGp"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
@@ -128,11 +116,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="elapsedTimeLabel" destination="8CS-m9-ugc" id="oBk-9A-9UL"/>
-                                            <outlet property="pauseLabel" destination="NEU-F3-HWq" id="XKr-p8-HjI"/>
-                                            <outlet property="pauseView" destination="z5p-Gh-YqC" id="Izs-Xh-vhD"/>
-                                            <outlet property="resetLabel" destination="wns-Ty-IMY" id="RcE-qA-DHq"/>
-                                            <outlet property="resetView" destination="Vm0-eX-EU8" id="ri2-YS-TrW"/>
+                                            <outlet property="leftActionButton" destination="HzQ-nO-M65" id="Aq5-hB-Kmr"/>
+                                            <outlet property="rightActionButton" destination="Ql7-Sk-2Tl" id="tRA-gp-fDe"/>
+                                            <outlet property="timeRemainingLabel" destination="8CS-m9-ugc" id="oBk-9A-9UL"/>
                                             <outlet property="timerNameLabel" destination="KPe-qz-Mpm" id="kEc-R8-VAM"/>
                                         </connections>
                                     </tableViewCell>
@@ -172,15 +158,15 @@
             <objects>
                 <viewController id="qtS-Xg-miO" customClass="AddTimerViewController" customModule="MultiTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WUf-v7-W8g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ha-gI-vuz" customClass="TopBorderView" customModule="MultiTimer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="238" width="320" height="242"/>
+                                <rect key="frame" x="0.0" y="238" width="375" height="429"/>
                                 <color key="backgroundColor" red="0.16862745100000001" green="0.20000000000000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qz-E4-ovu" customClass="RoundedButton" customModule="MultiTimer" customModuleProvider="target">
-                                <rect key="frame" x="50" y="283.5" width="220" height="44"/>
+                                <rect key="frame" x="50" y="283.5" width="275" height="44"/>
                                 <color key="backgroundColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Start">
@@ -191,7 +177,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNt-NA-fwu" customClass="RoundedButton" customModule="MultiTimer" customModuleProvider="target">
-                                <rect key="frame" x="50" y="335.5" width="220" height="44"/>
+                                <rect key="frame" x="50" y="335.5" width="275" height="44"/>
                                 <color key="backgroundColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Cancel">
@@ -202,23 +188,23 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dVP-Tb-eMx">
-                                <rect key="frame" x="0.0" y="243" width="320" height="20.5"/>
+                                <rect key="frame" x="0.0" y="243" width="375" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egh-yd-Wk8">
-                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="20.5"/>
                                         <color key="backgroundColor" red="0.16862745100000001" green="0.20000000000000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1l-2J-Cqt">
-                                        <rect key="frame" x="106.5" y="0.0" width="107" height="20.5"/>
+                                        <rect key="frame" x="125" y="0.0" width="125" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bO-cR-mO4">
-                                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="20.5"/>
+                                        <rect key="frame" x="250" y="0.0" width="125" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -227,23 +213,23 @@
                                 <color key="backgroundColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcc-2f-Zc1">
-                                <rect key="frame" x="0.0" y="20" width="320" height="218"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="218"/>
                                 <color key="backgroundColor" red="0.1333333333" green="0.14901960780000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pickerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNw-5N-pBi" customClass="UnderlinedView" customModule="MultiTimer" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9eT-Kf-0A0" userLabel="Name view">
-                                        <rect key="frame" x="0.0" y="20" width="320" height="97"/>
+                                        <rect key="frame" x="0.0" y="20" width="375" height="97"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nY1-CU-5k6">
-                                                <rect key="frame" x="20" y="8" width="300" height="20.5"/>
+                                                <rect key="frame" x="20" y="8" width="355" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z9v-LM-l0K" customClass="UnderlineTextField" customModule="MultiTimer" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="43" width="280" height="34"/>
+                                                <rect key="frame" x="20" y="43" width="335" height="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -314,9 +300,9 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DZI-31-O4J" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Nn6-TJ-b9u">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1333333333" green="0.14901960780000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.16862745100000001" green="0.20000000000000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

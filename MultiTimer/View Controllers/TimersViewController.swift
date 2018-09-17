@@ -10,7 +10,8 @@ import UIKit
 import AVFoundation
 import UserNotifications
 
-class TimersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TimersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TimerCellDelegate {
+    
     @IBOutlet weak var timersTableView: UITableView!
     private var timersArray = TimerArray()
 
@@ -24,8 +25,8 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewWillAppear(animated)
         timersTableView.reloadData()
     }
-
-    // Mark: table view methods
+    
+    // Mark - table view methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timersArray.count
     }
@@ -34,20 +35,64 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = timersTableView.dequeueReusableCell(withIdentifier: "Test Cell",
                                                        for: indexPath) as! TimerDisplayTableViewCell
         let timer = timersArray.element(atIndex: indexPath.row)
-        cell.timerCellDelegate = timer
         cell.timerNameLabel.text = timer.name
-        cell.elapsedTimeLabel.text = TimeConverter.convertToString(fromSeconds: timer.secondsRemaining)
-        cell.resetView.setColor(to: Constants.darkRedColor)
-        timer.displayDelegate = cell.elapsedTimeLabel
+        cell.timeRemainingLabel.text = TimeConverter.convertToString(fromSeconds: timer.timeRemaining())
+        cell.timerCellDelegate = self
+        if timer.displayDelegate != nil {
+            timer.displayDelegate = nil
+        }
+        timer.displayDelegate = cell.timeRemainingLabel
+        configureCellActionButtons(cell, from: timer)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let timerAssociatedWithCell = self.timersArray.element(atIndex: indexPath.row)
             timerAssociatedWithCell.displayDelegate = nil
             self.timersArray.remove(atIndex: indexPath.row)
             timersTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        tableView.reloadData()
+    }
+    
+    // Mark - Timer Cell Delegate Methods
+    internal func rightActionButtonTapped(forCell cell: TimerDisplayTableViewCell) {
+        let indexPath = timersTableView.indexPath(for: cell)
+        let timer = timersArray.element(atIndex: indexPath!.row)
+        switch timer.mode {
+        case .Running:
+            timer.pause()
+        case .Paused:
+            timer.resume()
+        default:
+            break
+        }
+        configureCellActionButtons(cell, from: timer)
+    }
+    
+    internal func leftActionButtonTapped(forCell cell: TimerDisplayTableViewCell) {
+        let indexPath = timersTableView.indexPath(for: cell)
+        let timer =  timersArray.element(atIndex: indexPath!.row)
+        timer.reset()
+        configureCellActionButtons(cell, from: timer)
+    }
+    
+    // Mark - Misc
+    private func configureCellActionButtons(_ cell: TimerDisplayTableViewCell, from timer: MTTimer) {
+        switch timer.mode {
+        case .Running:
+            cell.rightActionButton.setOverallColor(to: #colorLiteral(red: 0.1333333333, green: 0.1490196078, blue: 0.168627451, alpha: 1))
+            cell.leftActionButton.setOverallColor(to: #colorLiteral(red: 0.7529411765, green: 0.2235294118, blue: 0.168627451, alpha: 1))
+            cell.rightActionButton.setText("Pause")
+        case .Paused:
+            cell.rightActionButton.setText("Resume")
+        case .Finished:
+            cell.rightActionButton.setText("Cancel")
+            cell.leftActionButton.setOverallColor(to: #colorLiteral(red: 0.1529411765, green: 0.6823529412, blue: 0.3764705882, alpha: 1))
+            cell.rightActionButton.setOverallColor(to: #colorLiteral(red: 0.7529411765, green: 0.2235294118, blue: 0.168627451, alpha: 1))
+        default:
+            break;
         }
     }
     

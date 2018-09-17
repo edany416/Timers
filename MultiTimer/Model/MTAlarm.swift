@@ -23,6 +23,10 @@ class MTAlarm: NSObject, UNUserNotificationCenterDelegate {
         content.sound = UNNotificationSound.default()
     }
     
+    deinit {
+        center.removeAllPendingNotificationRequests()
+    }
+    
     func triggerAlarmAfter(timerInterval seconds: TimeInterval) {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
         let request = UNNotificationRequest(identifier: uuidStringIdentifier, content: content, trigger: trigger)

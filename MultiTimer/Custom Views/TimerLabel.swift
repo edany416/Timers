@@ -26,7 +26,6 @@ class TimerLabel: UILabel, TimerDisplayDelegate {
     
     private func setup() {
         self.adjustsFontSizeToFitWidth = true
-        self.textColor = Constants.darkBlueColor
         self.font = UIFont.monospacedDigitSystemFont(ofSize: 75, weight: UIFont.Weight.thin)
     }
 }

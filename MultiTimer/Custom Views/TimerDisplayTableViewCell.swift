@@ -9,49 +9,27 @@
 import UIKit
 class TimerDisplayTableViewCell: UITableViewCell {
 
-    
-    @IBOutlet weak var elapsedTimeLabel: TimerLabel!
-    @IBOutlet weak var resetView: CircleStrokedView!
-    @IBOutlet weak var pauseView: CircleStrokedView!
+    @IBOutlet weak var timeRemainingLabel: TimerLabel!
     @IBOutlet weak var timerNameLabel: UILabel!
-    @IBOutlet weak var resetLabel: UILabel!
-    @IBOutlet weak var pauseLabel: UILabel!
-    
+    @IBOutlet weak var leftActionButton: TimerActionButton!
+    @IBOutlet weak var rightActionButton: TimerActionButton!
     
     var timerCellDelegate: TimerCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        setupActionViews()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
-    private func setupActionViews() {
-        let pauseViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(pauseViewTapped))
-        pauseView.addGestureRecognizer(pauseViewTapGesture)
-        let resetViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(resetViewTapped))
-        resetView.addGestureRecognizer(resetViewTapGesture)
+    @IBAction func leftButtonTapped(_ sender: TimerActionButton) {
+        timerCellDelegate?.leftActionButtonTapped(forCell: self)
     }
     
-    @objc private func pauseViewTapped() {
-        if pauseLabel.text! == "Pause" {
-            pauseLabel.text! = "Resume"
-            timerCellDelegate?.pauseTapped()
-        } else {
-            pauseLabel.text = "Pause"
-            timerCellDelegate?.resumeTapped()
-        }
+    @IBAction func rightButtonTapped(_ sender: TimerActionButton) {
+        timerCellDelegate?.rightActionButtonTapped(forCell: self)
     }
-    
-    @objc private func resetViewTapped() {
-        pauseLabel.text = "Pause"
-        timerCellDelegate?.resetTapped()
-    }
-
 }

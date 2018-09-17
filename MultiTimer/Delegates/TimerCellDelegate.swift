@@ -9,7 +9,6 @@
 import Foundation
 
 protocol TimerCellDelegate {
-    func pauseTapped()
-    func resumeTapped()
-    func resetTapped()
+    func rightActionButtonTapped(forCell cell: TimerDisplayTableViewCell)
+    func leftActionButtonTapped(forCell cell: TimerDisplayTableViewCell)
 }

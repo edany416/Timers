@@ -21,7 +21,8 @@ class RoundedButton: UIButton {
     }
 
     private func setupButton() {
-        self.layer.cornerRadius = self.bounds.height/2
+        let minDimesion = (self.bounds.height <= self.bounds.width) ? self.bounds.height : self.bounds.width
+        self.layer.cornerRadius = minDimesion/2
         self.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 }

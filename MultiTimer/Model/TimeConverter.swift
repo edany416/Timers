@@ -10,11 +10,11 @@ import Foundation
 
 struct TimeConverter {
     
-    static func convertToSeconds(fromHours hrs: Int, minutes min: Int, seconds sec: Int) -> Int {
-        var timeInSeconds = Int()
-        timeInSeconds += 3600 * hrs
-        timeInSeconds += 60*min
-        timeInSeconds += sec
+    static func convertToSeconds(fromHours hrs: Int, minutes min: Int, seconds sec: Int) -> TimeInterval {
+        var timeInSeconds = TimeInterval()
+        timeInSeconds += 3600 * Double(hrs)
+        timeInSeconds += 60*Double(min)
+        timeInSeconds += Double(sec)
         return timeInSeconds
     }
     

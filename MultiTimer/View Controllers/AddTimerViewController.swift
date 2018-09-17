@@ -66,13 +66,25 @@ class AddTimerViewController: UIViewController, UIPickerViewDataSource, UIPicker
         self.dismiss(animated: true, completion: nil)
     }
     
+    private var hours: Int {
+        return timerPickerView.selectedRow(inComponent: Constants.HourComponent)
+    }
+    private var minutes: Int {
+        return timerPickerView.selectedRow(inComponent: Constants.MinuteComponent)
+    }
+    private var seconds: Int {
+        return timerPickerView.selectedRow(inComponent: Constants.SecondsComponent)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return (hours != 0) && (minutes != 0) && (seconds != 0)
+    }
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segueID = segue.identifier, segueID == "Unwind Start" {
-            let hours = timerPickerView.selectedRow(inComponent: Constants.HourComponent)
-            let minutes = timerPickerView.selectedRow(inComponent: Constants.MinuteComponent)
-            let seconds = timerPickerView.selectedRow(inComponent: Constants.SecondsComponent)
+
             let totalTimeInSeconds = TimeConverter.convertToSeconds(fromHours: hours, minutes: minutes, seconds: seconds)
-            timer = MTTimer(withTotalTimeInSeconds: totalTimeInSeconds, timerName: timerNameTextField.text)
+            timer = MTTimer(fromTimeInterval: totalTimeInSeconds, name: timerNameTextField.text)
         }
     }
 }
