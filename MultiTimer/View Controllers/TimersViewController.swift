@@ -95,15 +95,15 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
     private func configureCellActionButtons(_ cell: TimerDisplayTableViewCell, from timer: MTTimer) {
         switch timer.mode {
         case .Running?:
-            cell.rightActionButton.setOverallColor(to: #colorLiteral(red: 0.1333333333, green: 0.1490196078, blue: 0.168627451, alpha: 1))
-            cell.leftActionButton.setOverallColor(to: #colorLiteral(red: 0.7529411765, green: 0.2235294118, blue: 0.168627451, alpha: 1))
+            cell.rightActionButton.setOverallColor(to: #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2745098039, alpha: 1))
+            cell.leftActionButton.setOverallColor(to: #colorLiteral(red: 0.8784313725, green: 0.1960784314, blue: 0.007843137255, alpha: 1))
             cell.rightActionButton.setText("Pause")
         case .Paused?:
             cell.rightActionButton.setText("Resume")
         case .Finished?:
             cell.rightActionButton.setText("Cancel")
-            cell.leftActionButton.setOverallColor(to: #colorLiteral(red: 0.1529411765, green: 0.6823529412, blue: 0.3764705882, alpha: 1))
-            cell.rightActionButton.setOverallColor(to: #colorLiteral(red: 0.7529411765, green: 0.2235294118, blue: 0.168627451, alpha: 1))
+            cell.leftActionButton.setOverallColor(to: #colorLiteral(red: 0.1647058824, green: 0.5882352941, blue: 0.2666666667, alpha: 1))
+            cell.rightActionButton.setOverallColor(to: #colorLiteral(red: 0.8784313725, green: 0.1960784314, blue: 0.007843137255, alpha: 1))
         default:
             break;
         }

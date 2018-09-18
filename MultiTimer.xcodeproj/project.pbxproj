@@ -30,6 +30,7 @@
 		8C43F027213A18D10012577A /* Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8C43F026213A18D10012577A /* Notes.rtf */; };
 		8C43F034213CCD860012577A /* TimerDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F033213CCD860012577A /* TimerDisplayTableViewCell.swift */; };
 		8C43F036213CF4140012577A /* UnderlinedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F035213CF4140012577A /* UnderlinedView.swift */; };
+		8CB2606A2150CC2200A07D7A /* TopBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB260692150CC2200A07D7A /* TopBottomBorderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		8C43F026213A18D10012577A /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
 		8C43F033213CCD860012577A /* TimerDisplayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplayTableViewCell.swift; sourceTree = "<group>"; };
 		8C43F035213CF4140012577A /* UnderlinedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedView.swift; sourceTree = "<group>"; };
+		8CB260692150CC2200A07D7A /* TopBottomBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBottomBorderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				8C43F00F213767F20012577A /* UnderlineTextField.swift */,
 				8C43F035213CF4140012577A /* UnderlinedView.swift */,
 				8C39FC852148335300347930 /* TopBorderView.swift */,
+				8CB260692150CC2200A07D7A /* TopBottomBorderView.swift */,
 				8C43F01E213909190012577A /* TimerLabel.swift */,
 				8C43F033213CCD860012577A /* TimerDisplayTableViewCell.swift */,
 				8C198F2A214EE3DF004EE54A /* TimerActionButton.swift */,
@@ -237,6 +240,7 @@
 				8C43EFCE212E06D10012577A /* AppDelegate.swift in Sources */,
 				8C39FC752147189600347930 /* TimeConverter.swift in Sources */,
 				8C43F01F213909190012577A /* TimerLabel.swift in Sources */,
+				8CB2606A2150CC2200A07D7A /* TopBottomBorderView.swift in Sources */,
 				8C43EFE5212E21EC0012577A /* MTTimer.swift in Sources */,
 				8C43EFEB212E39900012577A /* TimeArray.swift in Sources */,
 				8C43F01D213907C40012577A /* TimerDisplayDelegate.swift in Sources */,
