@@ -19,6 +19,16 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         timersTableView.dataSource = self
         timersTableView.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(handleTimerFinishedNotificaton(_:)), name: Notification.Name(timerFinishedNotification), object: nil)
+    }
+
+    @objc private func handleTimerFinishedNotificaton(_ notfication: Notification) {
+        if let timer = notfication.object as? MTTimer {
+            if let index = timersArray.index(of: timer) {
+                let indexPath = IndexPath(item: index, section: 0)
+                timersTableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,10 +71,13 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
         let indexPath = timersTableView.indexPath(for: cell)
         let timer = timersArray.element(atIndex: indexPath!.row)
         switch timer.mode {
-        case .Running:
+        case .Running?:
             timer.pause()
-        case .Paused:
+        case .Paused?:
             timer.resume()
+        case .Finished?:
+            timersArray.remove(atIndex: indexPath!.row)
+            timersTableView.deleteRows(at: [indexPath!], with: .automatic)
         default:
             break
         }
@@ -81,13 +94,13 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
     // Mark - Misc
     private func configureCellActionButtons(_ cell: TimerDisplayTableViewCell, from timer: MTTimer) {
         switch timer.mode {
-        case .Running:
+        case .Running?:
             cell.rightActionButton.setOverallColor(to: #colorLiteral(red: 0.1333333333, green: 0.1490196078, blue: 0.168627451, alpha: 1))
             cell.leftActionButton.setOverallColor(to: #colorLiteral(red: 0.7529411765, green: 0.2235294118, blue: 0.168627451, alpha: 1))
             cell.rightActionButton.setText("Pause")
-        case .Paused:
+        case .Paused?:
             cell.rightActionButton.setText("Resume")
-        case .Finished:
+        case .Finished?:
             cell.rightActionButton.setText("Cancel")
             cell.leftActionButton.setOverallColor(to: #colorLiteral(red: 0.1529411765, green: 0.6823529412, blue: 0.3764705882, alpha: 1))
             cell.rightActionButton.setOverallColor(to: #colorLiteral(red: 0.7529411765, green: 0.2235294118, blue: 0.168627451, alpha: 1))

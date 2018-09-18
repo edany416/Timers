@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DZI-31-O4J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DZI-31-O4J">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,32 +30,32 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lH-av-BoM" customClass="ShadowedView" customModule="MultiTimer" customModuleProvider="target">
-                                                    <rect key="frame" x="5" y="5" width="365" height="159"/>
+                                                    <rect key="frame" x="5" y="5" width="310" height="159"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JkC-2w-T1u">
-                                                    <rect key="frame" x="15" y="11" width="345" height="147"/>
+                                                    <rect key="frame" x="15" y="11" width="290" height="147"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPe-qz-Mpm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="290" height="24"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                             <color key="textColor" red="0.1333333333" green="0.14901960780000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CS-m9-ugc" customClass="TimerLabel" customModule="MultiTimer" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="24" width="345" height="61.5"/>
+                                                            <rect key="frame" x="0.0" y="24" width="290" height="61.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="75"/>
                                                             <color key="textColor" red="0.1333333333" green="0.14901960780000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DF4-xf-lf5">
-                                                            <rect key="frame" x="0.0" y="85.5" width="345" height="61.5"/>
+                                                            <rect key="frame" x="0.0" y="85.5" width="290" height="61.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="woY-nr-7gX" userLabel="Reset View">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="172.5" height="61.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="145" height="61.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzQ-nO-M65" customClass="TimerActionButton" customModule="MultiTimer" customModuleProvider="target">
-                                                                            <rect key="frame" x="56" y="0.0" width="61.5" height="61.5"/>
+                                                                            <rect key="frame" x="42" y="0.0" width="61.5" height="61.5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="HzQ-nO-M65" secondAttribute="height" multiplier="1:1" id="HoP-uI-zic"/>
                                                                             </constraints>
@@ -76,10 +73,10 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txT-v7-0uq" userLabel="Pause Resume View">
-                                                                    <rect key="frame" x="172.5" y="0.0" width="172.5" height="61.5"/>
+                                                                    <rect key="frame" x="145" y="0.0" width="145" height="61.5"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ql7-Sk-2Tl" customClass="TimerActionButton" customModule="MultiTimer" customModuleProvider="target">
-                                                                            <rect key="frame" x="56" y="0.0" width="61.5" height="61.5"/>
+                                                                            <rect key="frame" x="42" y="0.0" width="61.5" height="61.5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="Ql7-Sk-2Tl" secondAttribute="height" multiplier="1:1" id="xHN-Jy-djg"/>
                                                                             </constraints>
@@ -163,11 +160,11 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ha-gI-vuz" customClass="TopBorderView" customModule="MultiTimer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="238" width="375" height="429"/>
-                                <color key="backgroundColor" red="0.16862745100000001" green="0.20000000000000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qz-E4-ovu" customClass="RoundedButton" customModule="MultiTimer" customModuleProvider="target">
                                 <rect key="frame" x="50" y="283.5" width="275" height="44"/>
-                                <color key="backgroundColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.22352941179999999" green="0.62352941179999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -192,7 +189,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egh-yd-Wk8">
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="20.5"/>
-                                        <color key="backgroundColor" red="0.16862745100000001" green="0.20000000000000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -214,7 +211,7 @@
                             </stackView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcc-2f-Zc1">
                                 <rect key="frame" x="0.0" y="20" width="375" height="218"/>
-                                <color key="backgroundColor" red="0.1333333333" green="0.14901960780000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.38431372549999998" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pickerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNw-5N-pBi" customClass="UnderlinedView" customModule="MultiTimer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
@@ -250,7 +247,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.16862745100000001" green="0.20000000000000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="9eT-Kf-0A0" secondAttribute="trailing" id="BRY-My-vhI"/>
                                     <constraint firstItem="9eT-Kf-0A0" firstAttribute="leading" secondItem="uNw-5N-pBi" secondAttribute="leading" id="bwD-nJ-LPd"/>
@@ -302,7 +299,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Nn6-TJ-b9u">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.16862745100000001" green="0.20000000000000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

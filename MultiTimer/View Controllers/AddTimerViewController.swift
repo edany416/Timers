@@ -36,7 +36,7 @@ class AddTimerViewController: UIViewController, UIPickerViewDataSource, UIPicker
         _ = textFieldShouldReturn(timerNameTextField)
     }
     
-    // Mark: picker view methods
+    // Mark - picker view methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return Constants.PickerViewComponents
     }
@@ -61,28 +61,23 @@ class AddTimerViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return myTitle
     }
     
-    // Mark: Action methods
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    private var hours: Int {
-        return timerPickerView.selectedRow(inComponent: Constants.HourComponent)
-    }
-    private var minutes: Int {
-        return timerPickerView.selectedRow(inComponent: Constants.MinuteComponent)
-    }
-    private var seconds: Int {
-        return timerPickerView.selectedRow(inComponent: Constants.SecondsComponent)
-    }
+    private var hours: Int { return timerPickerView.selectedRow(inComponent: Constants.HourComponent) }
+    private var minutes: Int { return timerPickerView.selectedRow(inComponent: Constants.MinuteComponent) }
+    private var seconds: Int { return timerPickerView.selectedRow(inComponent: Constants.SecondsComponent) }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return (hours != 0) && (minutes != 0) && (seconds != 0)
+        if (hours == 0) && (minutes == 0) && (seconds == 0) {
+            return false
+        }
+        return true
     }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segueID = segue.identifier, segueID == "Unwind Start" {
-
             let totalTimeInSeconds = TimeConverter.convertToSeconds(fromHours: hours, minutes: minutes, seconds: seconds)
             timer = MTTimer(fromTimeInterval: totalTimeInSeconds, name: timerNameTextField.text)
         }
