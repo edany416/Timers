@@ -36,15 +36,23 @@ class TimerActionButton: UIButton {
     private func initButtonAttributes() {
         circleStrokeColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        backgroundColor = UIColor.clear
     }
 
     override func draw(_ rect: CGRect) {
         circleStrokeColor.setStroke()
         let minDimension = (rect.height <= rect.width) ? rect.height : rect.width
-        let circlePath = UIBezierPath()
-        circlePath.lineWidth = 1
-        circlePath.addArc(withCenter: centerPoint(), radius: minDimension/2.2, startAngle: 0, endAngle: CGFloat.pi*2, clockwise: true)
-        circlePath.stroke()
+        let outerCircle = UIBezierPath()
+        outerCircle.lineWidth = 2
+        outerCircle.addArc(withCenter: centerPoint(), radius: minDimension/2.2, startAngle: 0, endAngle: CGFloat.pi*2, clockwise: true)
+        outerCircle.stroke()
+        
+        let innerCircle = UIBezierPath()
+        innerCircle.lineWidth = 1
+        innerCircle.addArc(withCenter: centerPoint(), radius: minDimension/2.5, startAngle: 0, endAngle: CGFloat.pi*2, clockwise: true)
+        innerCircle.stroke()
+        
+        
     }
     
     private func centerPoint() -> CGPoint {

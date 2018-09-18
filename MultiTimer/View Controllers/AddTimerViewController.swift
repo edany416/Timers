@@ -11,7 +11,7 @@ import UIKit
 class AddTimerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var timerPickerView: UIPickerView!
-    @IBOutlet weak var timerNameTextField: UnderlineTextField!
+    @IBOutlet weak var timerNameTextField: UITextField!
     var timer: MTTimer?
     
     
