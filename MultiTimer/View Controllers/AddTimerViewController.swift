@@ -10,28 +10,30 @@ import UIKit
 
 class AddTimerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var timerPickerView: UIPickerView!
     @IBOutlet weak var timerNameTextField: UITextField!
+    @IBOutlet weak var timerPickerView: UIPickerView!
     var timer: MTTimer?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        timerNameTextField.delegate = self
         timerPickerView.dataSource = self
         timerPickerView.delegate = self
-        timerNameTextField.delegate = self
     }
-    
+   
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timerNameTextField.resignFirstResponder()
     }
-    
+
+    // Mark - Text field delegate methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         timerNameTextField.resignFirstResponder()
         return true
     }
     
+    //WTF is this
     @objc private func dismissKeyboardWithTap() {
         _ = textFieldShouldReturn(timerNameTextField)
     }
@@ -57,17 +59,20 @@ class AddTimerViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = "\(row)"
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.foregroundColor:UIColor.white])
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
         return myTitle
     }
     
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    
     
     private var hours: Int { return timerPickerView.selectedRow(inComponent: Constants.HourComponent) }
     private var minutes: Int { return timerPickerView.selectedRow(inComponent: Constants.MinuteComponent) }
     private var seconds: Int { return timerPickerView.selectedRow(inComponent: Constants.SecondsComponent) }
+    
+    // Mark - Segue Methods
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if (hours == 0) && (minutes == 0) && (seconds == 0) {

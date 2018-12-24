@@ -10,35 +10,33 @@
 		8C198F2B214EE3DF004EE54A /* TimerActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C198F2A214EE3DF004EE54A /* TimerActionButton.swift */; };
 		8C39FC752147189600347930 /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C39FC742147189600347930 /* TimeConverter.swift */; };
 		8C39FC80214752CA00347930 /* MTAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C39FC7F214752CA00347930 /* MTAlarm.swift */; };
-		8C39FC8221476CCA00347930 /* timeup.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C39FC8121476CC900347930 /* timeup.wav */; };
-		8C39FC862148335300347930 /* TopBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C39FC852148335300347930 /* TopBorderView.swift */; };
 		8C43EFCE212E06D10012577A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43EFCD212E06D10012577A /* AppDelegate.swift */; };
 		8C43EFD3212E06D10012577A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43EFD1212E06D10012577A /* Main.storyboard */; };
 		8C43EFD5212E06D30012577A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C43EFD4212E06D30012577A /* Assets.xcassets */; };
 		8C43EFD8212E06D30012577A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43EFD6212E06D30012577A /* LaunchScreen.storyboard */; };
 		8C43EFE5212E21EC0012577A /* MTTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43EFE4212E21EC0012577A /* MTTimer.swift */; };
 		8C43EFEB212E39900012577A /* TimeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43EFEA212E39900012577A /* TimeArray.swift */; };
-		8C43F0052136370B0012577A /* ShadowedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F0042136370B0012577A /* ShadowedView.swift */; };
 		8C43F00A21372FAF0012577A /* TimersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F00921372FAF0012577A /* TimersViewController.swift */; };
 		8C43F00C213733700012577A /* AddTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F00B213733700012577A /* AddTimerViewController.swift */; };
 		8C43F00E213733FB0012577A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F00D213733FB0012577A /* Constants.swift */; };
-		8C43F010213767F20012577A /* UnderlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F00F213767F20012577A /* UnderlineTextField.swift */; };
 		8C43F0122137AE3D0012577A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F0112137AE3D0012577A /* RoundedButton.swift */; };
 		8C43F0152137B39F0012577A /* TimerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F0142137B39F0012577A /* TimerCellDelegate.swift */; };
 		8C43F01D213907C40012577A /* TimerDisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F01C213907C40012577A /* TimerDisplayDelegate.swift */; };
 		8C43F01F213909190012577A /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F01E213909190012577A /* TimerLabel.swift */; };
-		8C43F027213A18D10012577A /* Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8C43F026213A18D10012577A /* Notes.rtf */; };
-		8C43F034213CCD860012577A /* TimerDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F033213CCD860012577A /* TimerDisplayTableViewCell.swift */; };
 		8C43F036213CF4140012577A /* UnderlinedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F035213CF4140012577A /* UnderlinedView.swift */; };
+		8C4D22C021CF2BF3002BBC96 /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D22BF21CF2BF3002BBC96 /* RoundShadowView.swift */; };
+		8C4D22C221D0551F002BBC96 /* leftBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D22C121D0551F002BBC96 /* leftBorderView.swift */; };
+		8C4D22C621D06F18002BBC96 /* HighlightTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D22C521D06F18002BBC96 /* HighlightTapView.swift */; };
 		8CB2606A2150CC2200A07D7A /* TopBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB260692150CC2200A07D7A /* TopBottomBorderView.swift */; };
+		8CBE57BE21CDA41E00D49783 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBE57BD21CDA41E00D49783 /* TimerTableViewCell.swift */; };
+		8CDC054F21518D2F00A70EB7 /* AlarmRepeating.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC054E21518D2F00A70EB7 /* AlarmRepeating.aiff */; };
+		8CDC055121518DBF00A70EB7 /* AlarmRepeating.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC055021518DBF00A70EB7 /* AlarmRepeating.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C198F2A214EE3DF004EE54A /* TimerActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerActionButton.swift; sourceTree = "<group>"; };
 		8C39FC742147189600347930 /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		8C39FC7F214752CA00347930 /* MTAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTAlarm.swift; sourceTree = "<group>"; };
-		8C39FC8121476CC900347930 /* timeup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = timeup.wav; sourceTree = "<group>"; };
-		8C39FC852148335300347930 /* TopBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBorderView.swift; sourceTree = "<group>"; };
 		8C43EFCA212E06D10012577A /* MultiTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C43EFCD212E06D10012577A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C43EFD2212E06D10012577A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,19 +45,21 @@
 		8C43EFD9212E06D30012577A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C43EFE4212E21EC0012577A /* MTTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTimer.swift; sourceTree = "<group>"; };
 		8C43EFEA212E39900012577A /* TimeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeArray.swift; sourceTree = "<group>"; };
-		8C43F0042136370B0012577A /* ShadowedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShadowedView.swift; path = ../../../../../.Trash/ShadowedView.swift; sourceTree = "<group>"; };
 		8C43F00921372FAF0012577A /* TimersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimersViewController.swift; sourceTree = "<group>"; };
 		8C43F00B213733700012577A /* AddTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimerViewController.swift; sourceTree = "<group>"; };
 		8C43F00D213733FB0012577A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		8C43F00F213767F20012577A /* UnderlineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnderlineTextField.swift; path = "../../../AuTodo/AuTodo/Custom Views/UnderlineTextField.swift"; sourceTree = "<group>"; };
 		8C43F0112137AE3D0012577A /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		8C43F0142137B39F0012577A /* TimerCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCellDelegate.swift; sourceTree = "<group>"; };
 		8C43F01C213907C40012577A /* TimerDisplayDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplayDelegate.swift; sourceTree = "<group>"; };
 		8C43F01E213909190012577A /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
-		8C43F026213A18D10012577A /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
-		8C43F033213CCD860012577A /* TimerDisplayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplayTableViewCell.swift; sourceTree = "<group>"; };
 		8C43F035213CF4140012577A /* UnderlinedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedView.swift; sourceTree = "<group>"; };
+		8C4D22BF21CF2BF3002BBC96 /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
+		8C4D22C121D0551F002BBC96 /* leftBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leftBorderView.swift; sourceTree = "<group>"; };
+		8C4D22C521D06F18002BBC96 /* HighlightTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightTapView.swift; sourceTree = "<group>"; };
 		8CB260692150CC2200A07D7A /* TopBottomBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBottomBorderView.swift; sourceTree = "<group>"; };
+		8CBE57BD21CDA41E00D49783 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
+		8CDC054E21518D2F00A70EB7 /* AlarmRepeating.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = AlarmRepeating.aiff; sourceTree = "<group>"; };
+		8CDC055021518DBF00A70EB7 /* AlarmRepeating.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AlarmRepeating.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +109,8 @@
 				8C43EFD6212E06D30012577A /* LaunchScreen.storyboard */,
 				8C43EFD9212E06D30012577A /* Info.plist */,
 				8C43EFCD212E06D10012577A /* AppDelegate.swift */,
-				8C43F026213A18D10012577A /* Notes.rtf */,
-				8C39FC8121476CC900347930 /* timeup.wav */,
+				8CDC054E21518D2F00A70EB7 /* AlarmRepeating.aiff */,
+				8CDC055021518DBF00A70EB7 /* AlarmRepeating.mp3 */,
 			);
 			path = MultiTimer;
 			sourceTree = "<group>";
@@ -131,14 +131,14 @@
 			isa = PBXGroup;
 			children = (
 				8C43F0112137AE3D0012577A /* RoundedButton.swift */,
-				8C43F0042136370B0012577A /* ShadowedView.swift */,
-				8C43F00F213767F20012577A /* UnderlineTextField.swift */,
 				8C43F035213CF4140012577A /* UnderlinedView.swift */,
-				8C39FC852148335300347930 /* TopBorderView.swift */,
 				8CB260692150CC2200A07D7A /* TopBottomBorderView.swift */,
 				8C43F01E213909190012577A /* TimerLabel.swift */,
-				8C43F033213CCD860012577A /* TimerDisplayTableViewCell.swift */,
 				8C198F2A214EE3DF004EE54A /* TimerActionButton.swift */,
+				8CBE57BD21CDA41E00D49783 /* TimerTableViewCell.swift */,
+				8C4D22BF21CF2BF3002BBC96 /* RoundShadowView.swift */,
+				8C4D22C121D0551F002BBC96 /* leftBorderView.swift */,
+				8C4D22C521D06F18002BBC96 /* HighlightTapView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					8C43EFC9212E06D10012577A = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -222,8 +223,8 @@
 				8C43EFD8212E06D30012577A /* LaunchScreen.storyboard in Resources */,
 				8C43EFD5212E06D30012577A /* Assets.xcassets in Resources */,
 				8C43EFD3212E06D10012577A /* Main.storyboard in Resources */,
-				8C39FC8221476CCA00347930 /* timeup.wav in Resources */,
-				8C43F027213A18D10012577A /* Notes.rtf in Resources */,
+				8CDC055121518DBF00A70EB7 /* AlarmRepeating.mp3 in Resources */,
+				8CDC054F21518D2F00A70EB7 /* AlarmRepeating.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,22 +235,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C43F010213767F20012577A /* UnderlineTextField.swift in Sources */,
 				8C39FC80214752CA00347930 /* MTAlarm.swift in Sources */,
 				8C43F00C213733700012577A /* AddTimerViewController.swift in Sources */,
 				8C43EFCE212E06D10012577A /* AppDelegate.swift in Sources */,
 				8C39FC752147189600347930 /* TimeConverter.swift in Sources */,
 				8C43F01F213909190012577A /* TimerLabel.swift in Sources */,
+				8C4D22C021CF2BF3002BBC96 /* RoundShadowView.swift in Sources */,
 				8CB2606A2150CC2200A07D7A /* TopBottomBorderView.swift in Sources */,
 				8C43EFE5212E21EC0012577A /* MTTimer.swift in Sources */,
+				8C4D22C221D0551F002BBC96 /* leftBorderView.swift in Sources */,
 				8C43EFEB212E39900012577A /* TimeArray.swift in Sources */,
 				8C43F01D213907C40012577A /* TimerDisplayDelegate.swift in Sources */,
-				8C43F034213CCD860012577A /* TimerDisplayTableViewCell.swift in Sources */,
 				8C43F00A21372FAF0012577A /* TimersViewController.swift in Sources */,
+				8CBE57BE21CDA41E00D49783 /* TimerTableViewCell.swift in Sources */,
 				8C198F2B214EE3DF004EE54A /* TimerActionButton.swift in Sources */,
-				8C39FC862148335300347930 /* TopBorderView.swift in Sources */,
 				8C43F0122137AE3D0012577A /* RoundedButton.swift in Sources */,
-				8C43F0052136370B0012577A /* ShadowedView.swift in Sources */,
+				8C4D22C621D06F18002BBC96 /* HighlightTapView.swift in Sources */,
 				8C43F0152137B39F0012577A /* TimerCellDelegate.swift in Sources */,
 				8C43F036213CF4140012577A /* UnderlinedView.swift in Sources */,
 				8C43F00E213733FB0012577A /* Constants.swift in Sources */,
@@ -405,7 +406,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = edan.yachdav.org.A14204593.MultiTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -423,7 +424,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = edan.yachdav.org.A14204593.MultiTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

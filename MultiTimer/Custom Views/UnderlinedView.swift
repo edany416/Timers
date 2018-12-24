@@ -20,9 +20,12 @@ class UnderlinedView: UIView {
 
     override func draw(_ rect: CGRect) {
         let lowerBorderLine = UIBezierPath()
+        
         let lineColor = UIColor.white
-        lineColor.setStroke()
         let lineWidth = CGFloat(0.5)
+        lineColor.setStroke()
+        
+        
         lowerBorderLine.lineWidth = lineWidth
         lowerBorderLine.move(to: CGPoint(x: rect.minX, y: rect.maxY - lineWidth))
         lowerBorderLine.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY - lineWidth))

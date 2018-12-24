@@ -42,8 +42,8 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = timersTableView.dequeueReusableCell(withIdentifier: "Test Cell",
-                                                       for: indexPath) as! TimerDisplayTableViewCell
+        let cell = timersTableView.dequeueReusableCell(withIdentifier: "Named Timer Cell",
+                                                       for: indexPath) as! TimerTableViewCell
         let timer = timersArray.element(atIndex: indexPath.row)
         cell.timerNameLabel.text = timer.name
         cell.timeRemainingLabel.text = TimeConverter.convertToString(fromSeconds: timer.timeRemaining())
@@ -52,11 +52,11 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
             timer.displayDelegate = nil
         }
         timer.displayDelegate = cell.timeRemainingLabel
-        configureCellActionButtons(cell, from: timer)
+//        configureCellActionButtons(cell, from: timer)
         return cell
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let timerAssociatedWithCell = self.timersArray.element(atIndex: indexPath.row)
             timerAssociatedWithCell.displayDelegate = nil
@@ -66,49 +66,31 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.reloadData()
     }
     
+    
+    
     // Mark - Timer Cell Delegate Methods
-    internal func rightActionButtonTapped(forCell cell: TimerDisplayTableViewCell) {
+    
+    internal func actionButtonTapped(forCell cell: TimerTableViewCell) {
         let indexPath = timersTableView.indexPath(for: cell)
         let timer = timersArray.element(atIndex: indexPath!.row)
         switch timer.mode {
         case .Running?:
             timer.pause()
+            cell.actionLabel.text = "RESUME"
         case .Paused?:
             timer.resume()
-        case .Finished?:
-            timersArray.remove(atIndex: indexPath!.row)
-            timersTableView.deleteRows(at: [indexPath!], with: .automatic)
+            cell.actionLabel.text = "PAUSE"
         default:
             break
         }
-        configureCellActionButtons(cell, from: timer)
+        
     }
     
-    internal func leftActionButtonTapped(forCell cell: TimerDisplayTableViewCell) {
-        let indexPath = timersTableView.indexPath(for: cell)
-        let timer =  timersArray.element(atIndex: indexPath!.row)
-        timer.reset()
-        configureCellActionButtons(cell, from: timer)
+    private func updateActionButtonText(for cell: TimerTableViewCell, from timer:MTTimer) {
+        
     }
-    
-    // Mark - Misc
-    private func configureCellActionButtons(_ cell: TimerDisplayTableViewCell, from timer: MTTimer) {
-        switch timer.mode {
-        case .Running?:
-            cell.rightActionButton.setOverallColor(to: #colorLiteral(red: 0.2745098039, green: 0.2745098039, blue: 0.2745098039, alpha: 1))
-            cell.leftActionButton.setOverallColor(to: #colorLiteral(red: 0.8784313725, green: 0.1960784314, blue: 0.007843137255, alpha: 1))
-            cell.rightActionButton.setText("Pause")
-        case .Paused?:
-            cell.rightActionButton.setText("Resume")
-        case .Finished?:
-            cell.rightActionButton.setText("Cancel")
-            cell.leftActionButton.setOverallColor(to: #colorLiteral(red: 0.1647058824, green: 0.5882352941, blue: 0.2666666667, alpha: 1))
-            cell.rightActionButton.setOverallColor(to: #colorLiteral(red: 0.8784313725, green: 0.1960784314, blue: 0.007843137255, alpha: 1))
-        default:
-            break;
-        }
-    }
-    
+
+    // Mark - Segue Methods
     @IBAction func unwindFromStart(_ sender: UIStoryboardSegue) {
         if let sourceVC = sender.source as? AddTimerViewController {
             timersArray.append(newElement: sourceVC.timer!)

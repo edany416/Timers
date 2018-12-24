@@ -22,5 +22,4 @@ struct Constants {
     static let lighterDarkBlueColor = #colorLiteral(red: 0.2039215686, green: 0.2862745098, blue: 0.368627451, alpha: 1)
     static let darkRedColor = #colorLiteral(red: 0.7529411765, green: 0.2235294118, blue: 0.168627451, alpha: 1)
     static let lighterDarkRedColor = #colorLiteral(red: 0.7913910151, green: 0.1851300001, blue: 0.2209409177, alpha: 1)
-    
 }

@@ -9,10 +9,10 @@
 import UIKit
 class TimerDisplayTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var rightActionButton: TimerActionButton!
+    @IBOutlet weak var leftActionButton: TimerActionButton!
     @IBOutlet weak var timeRemainingLabel: TimerLabel!
     @IBOutlet weak var timerNameLabel: UILabel!
-    @IBOutlet weak var leftActionButton: TimerActionButton!
-    @IBOutlet weak var rightActionButton: TimerActionButton!
     
     var timerCellDelegate: TimerCellDelegate?
     
@@ -22,14 +22,15 @@ class TimerDisplayTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
+    
+    
     @IBAction func leftButtonTapped(_ sender: TimerActionButton) {
-        timerCellDelegate?.leftActionButtonTapped(forCell: self)
+//        timerCellDelegate?.leftActionButtonTapped(forCell: self)
     }
     
     @IBAction func rightButtonTapped(_ sender: TimerActionButton) {
-        timerCellDelegate?.rightActionButtonTapped(forCell: self)
+//        timerCellDelegate?.rightActionButtonTapped(forCell: self)
     }
 }

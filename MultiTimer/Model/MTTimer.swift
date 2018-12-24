@@ -23,9 +23,10 @@ class MTTimer: Equatable {
     var mode: TimerMode!
     var name: String?
     
+    private var timeRemainingWithInterruption: TimeInterval!
     private var latestStartTime: TimeInterval!
     private var initialTime: TimeInterval
-    private var timeRemainingWithInterruption: TimeInterval!
+    private var alarm = MTAlarm()
     private var timer: Timer!
     
     init(fromTimeInterval timeInterval: TimeInterval, name timerName: String?) {
@@ -34,13 +35,14 @@ class MTTimer: Equatable {
         timeRemainingWithInterruption = timeInterval
         initTimer()
     }
-    
+
     private func initTimer() {
         mode = .Running
         timer = Timer()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerTicked), userInfo: nil, repeats: true)
+        alarm.triggerAlarmAfter(timerInterval: timeRemainingWithInterruption)
         latestStartTime = NSDate().timeIntervalSince1970
-        RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
     @objc private func timerTicked() {
@@ -73,6 +75,7 @@ class MTTimer: Equatable {
     }
     
     func pause() {
+        alarm.cancelPendingAlarm()
         timer.invalidate()
         mode = .Paused
     }
