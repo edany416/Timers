@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import UserNotifications
 
-class TimersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TimerCellDelegate {
+class TimersViewController: UIViewController, TimerPickerDelegate {
     
     @IBOutlet weak var timersTableView: UITableView!
     private var timersArray = TimerArray()
@@ -20,13 +20,28 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
         timersTableView.dataSource = self
         timersTableView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(handleTimerFinishedNotificaton(_:)), name: Notification.Name(timerFinishedNotification), object: nil)
+        
+        if let timers = DataPersistenceService.loadData() {
+            timersArray = TimerArray(timers)
+            timersTableView.reloadData()
+        }
+        
+        _ = DataPersistenceService(dataList: timersArray)
+        
     }
 
     @objc private func handleTimerFinishedNotificaton(_ notfication: Notification) {
         if let timer = notfication.object as? MTTimer {
+            
+            timer.mode! = .Finished
+            
             if let index = timersArray.index(of: timer) {
                 let indexPath = IndexPath(item: index, section: 0)
                 timersTableView.reloadRows(at: [indexPath], with: .automatic)
+                
+                let cell = timersTableView.cellForRow(at: indexPath) as! TimerTableViewCell
+                cell.rightActionView.label.text = "Restart"
+                cell.leftActionView.label.text = "Cancel"
             }
         }
     }
@@ -35,14 +50,74 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewWillAppear(animated)
         timersTableView.reloadData()
     }
+
+    // Mark: - TimerPicker Delegate method
+    func timerCreated(_ timer: MTTimer) {
+        timersArray.append(newElement: timer)
+    }
     
-    // Mark - table view methods
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Add Timer Segue" {
+            let navVC = segue.destination as! UINavigationController
+            if let destVC = navVC.topViewController as? TimerPickerViewController {
+                destVC.timerPickerDelegate = self
+                destVC.endActionBarButton.title = "Start"
+            }
+        }
+    }
+}
+
+extension TimersViewController: TimerCellDelegate {
+    // Mark: - Timer Cell Delegate Methods
+    func didTapRightActionView(forCell cell: TimerTableViewCell) {
+        let indexPath = timersTableView.indexPath(for: cell)
+        let timerIndex = indexPath?.row
+        let timer = timersArray.element(atIndex: timerIndex!)
+        
+        switch timer.mode! {
+        case .Running:
+            timer.pause()
+            cell.rightActionView.label.text = "Resume"
+        case .Paused:
+            timer.resume()
+            cell.rightActionView.label.text = "Pause"
+        case .Finished:
+            timer.reset()
+            cell.rightActionView.label.text = "Pause"
+            cell.leftActionView.label.text = "Restart"
+        }
+    }
+    
+    func didTapLeftActionView(forCell cell: TimerTableViewCell) {
+        let indexPath = timersTableView.indexPath(for: cell)
+        let timerIndex = indexPath?.row
+        let timer = timersArray.element(atIndex: timerIndex!)
+        
+        switch timer.mode! {
+        case .Running:
+            timer.reset()
+        case .Paused:
+            timer.reset()
+            cell.rightActionView.label.text = "Pause"
+        case .Finished:
+            let timerAssociatedWithCell = self.timersArray.element(atIndex: timerIndex!)
+            timerAssociatedWithCell.displayDelegate = nil
+            self.timersArray.remove(atIndex: timerIndex!)
+            timersTableView.deleteRows(at: [indexPath!], with: .fade)
+        }
+    }
+}
+
+extension TimersViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // Mark: - table view methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timersArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = timersTableView.dequeueReusableCell(withIdentifier: "Named Timer Cell",
+        let cell = timersTableView.dequeueReusableCell(withIdentifier: "Timer Cell",
                                                        for: indexPath) as! TimerTableViewCell
         let timer = timersArray.element(atIndex: indexPath.row)
         cell.timerNameLabel.text = timer.name
@@ -52,10 +127,13 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
             timer.displayDelegate = nil
         }
         timer.displayDelegate = cell.timeRemainingLabel
-//        configureCellActionButtons(cell, from: timer)
+        
+        cell.rightActionView.label.text = "Pause"
+        cell.leftActionView.label.text = "Restart"
+        
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let timerAssociatedWithCell = self.timersArray.element(atIndex: indexPath.row)
@@ -64,36 +142,5 @@ class TimersViewController: UIViewController, UITableViewDataSource, UITableView
             timersTableView.deleteRows(at: [indexPath], with: .fade)
         }
         tableView.reloadData()
-    }
-    
-    
-    
-    // Mark - Timer Cell Delegate Methods
-    
-    internal func actionButtonTapped(forCell cell: TimerTableViewCell) {
-        let indexPath = timersTableView.indexPath(for: cell)
-        let timer = timersArray.element(atIndex: indexPath!.row)
-        switch timer.mode {
-        case .Running?:
-            timer.pause()
-            cell.actionLabel.text = "RESUME"
-        case .Paused?:
-            timer.resume()
-            cell.actionLabel.text = "PAUSE"
-        default:
-            break
-        }
-        
-    }
-    
-    private func updateActionButtonText(for cell: TimerTableViewCell, from timer:MTTimer) {
-        
-    }
-
-    // Mark - Segue Methods
-    @IBAction func unwindFromStart(_ sender: UIStoryboardSegue) {
-        if let sourceVC = sender.source as? AddTimerViewController {
-            timersArray.append(newElement: sourceVC.timer!)
-        }
     }
 }

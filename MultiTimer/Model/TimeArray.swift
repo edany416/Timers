@@ -8,14 +8,22 @@
 
 import Foundation
 
-struct TimerArray {
+class TimerArray {
     private var timerArray = [MTTimer]()
+    
     var count: Int {
         get {
             return timerArray.count
         }
     }
-    mutating func append(newElement timer: MTTimer) {
+    
+    init() {}
+    
+    init(_ timers: [MTTimer]) {
+        self.timerArray += timers
+    }
+    
+    func append(newElement timer: MTTimer) {
         timerArray.append(timer)
         timerArray.sort(by: <)
     }
@@ -37,7 +45,11 @@ struct TimerArray {
         return index
     }
     
-    mutating func remove(atIndex index: Int) {
+    func toArray() -> [MTTimer] {
+        return timerArray
+    }
+    
+    func remove(atIndex index: Int) {
         timerArray.remove(at: index)
     }
 }

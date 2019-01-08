@@ -9,5 +9,6 @@
 import Foundation
 
 protocol TimerCellDelegate {
-    func actionButtonTapped(forCell cell: TimerTableViewCell)
+    func didTapRightActionView(forCell cell: TimerTableViewCell)
+    func didTapLeftActionView(forCell cell: TimerTableViewCell)
 }
