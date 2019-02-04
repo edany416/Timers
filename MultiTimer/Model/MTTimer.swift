@@ -17,19 +17,22 @@ enum TimerMode {
 
 let timerFinishedNotification = "com.z3dd.timerFinishedNotification"
 
-class MTTimer:Equatable, NSCoding {
+class MTTimer: NSObject, NSCoding {
     
     var displayDelegate: TimerDisplayDelegate?
+    var initialTime: TimeInterval!
     var mode: TimerMode!
     var name: String?
     
     private var timeRemainingWithInterruption: TimeInterval!
     private var latestStartTime: TimeInterval!
-    private var initialTime: TimeInterval!
     private var alarm = MTAlarm()
     private var timer: Timer!
     
+    
+    
     init(fromTimeInterval timeInterval: TimeInterval, name timerName: String?) {
+        super.init()
         name = timerName
         initialTime = timeInterval
         timeRemainingWithInterruption = timeInterval
@@ -103,13 +106,13 @@ class MTTimer:Equatable, NSCoding {
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: PropertyKeys.name)
-        aCoder.encode(mode, forKey: PropertyKeys.mode)
+//        aCoder.encode(mode, forKey: PropertyKeys.mode)
         
     }
     
     required init(coder aDecoder: NSCoder) {
         self.name = aDecoder.decodeObject(forKey: PropertyKeys.name) as? String
-        self.mode = (aDecoder.decodeObject(forKey: PropertyKeys.mode) as! TimerMode)
+//        self.mode = (aDecoder.decodeObject(forKey: PropertyKeys.mode) as! TimerMode)
     }
     
 }

@@ -22,7 +22,7 @@ class CellBackgroundView: UIView {
     
     private func setup() {
         
-        self.backgroundColor = #colorLiteral(red: 0.168627451, green: 0.168627451, blue: 0.168627451, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
         self.layer.cornerRadius = 15.0
         self.clipsToBounds = true
 

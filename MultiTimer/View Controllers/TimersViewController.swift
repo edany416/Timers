@@ -13,36 +13,23 @@ import UserNotifications
 class TimersViewController: UIViewController, TimerPickerDelegate {
     
     @IBOutlet weak var timersTableView: UITableView!
-    private var timersArray = TimerArray()
+    private var runningTimers = TimerArray()
+    private var finishedTimers = TimerArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         timersTableView.dataSource = self
         timersTableView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(handleTimerFinishedNotificaton(_:)), name: Notification.Name(timerFinishedNotification), object: nil)
-        
-        if let timers = DataPersistenceService.loadData() {
-            timersArray = TimerArray(timers)
-            timersTableView.reloadData()
-        }
-        
-        _ = DataPersistenceService(dataList: timersArray)
-        
     }
 
     @objc private func handleTimerFinishedNotificaton(_ notfication: Notification) {
         if let timer = notfication.object as? MTTimer {
-            
             timer.mode! = .Finished
-            
-            if let index = timersArray.index(of: timer) {
-                let indexPath = IndexPath(item: index, section: 0)
-                timersTableView.reloadRows(at: [indexPath], with: .automatic)
-                
-                let cell = timersTableView.cellForRow(at: indexPath) as! TimerTableViewCell
-                cell.rightActionView.label.text = "Restart"
-                cell.leftActionView.label.text = "Cancel"
-            }
+            timer.displayDelegate = nil
+            runningTimers.remove(element: timer)
+            finishedTimers.append(newElement: timer)
+            timersTableView.reloadData()
         }
     }
     
@@ -53,7 +40,7 @@ class TimersViewController: UIViewController, TimerPickerDelegate {
 
     // Mark: - TimerPicker Delegate method
     func timerCreated(_ timer: MTTimer) {
-        timersArray.append(newElement: timer)
+        runningTimers.append(newElement: timer)
     }
     
     // MARK: - Navigation
@@ -70,77 +57,127 @@ class TimersViewController: UIViewController, TimerPickerDelegate {
 
 extension TimersViewController: TimerCellDelegate {
     // Mark: - Timer Cell Delegate Methods
-    func didTapRightActionView(forCell cell: TimerTableViewCell) {
+    func didTapPrimaryActionView(forCell cell: TimerTableViewCell) {
         let indexPath = timersTableView.indexPath(for: cell)
-        let timerIndex = indexPath?.row
-        let timer = timersArray.element(atIndex: timerIndex!)
+        let timerRowIndex = indexPath?.row
+        var timer: MTTimer
+        
+        if finishedTimers.count != 0 && indexPath?.section == 0 {
+            timer = finishedTimers.element(atIndex: timerRowIndex!)
+        } else {
+            timer = runningTimers.element(atIndex: timerRowIndex!)
+        }
         
         switch timer.mode! {
         case .Running:
             timer.pause()
-            cell.rightActionView.label.text = "Resume"
+            cell.primaryActionView.label.text = "Resume"
         case .Paused:
             timer.resume()
-            cell.rightActionView.label.text = "Pause"
+            cell.primaryActionView.label.text = "Pause"
         case .Finished:
-            timer.reset()
-            cell.rightActionView.label.text = "Pause"
-            cell.leftActionView.label.text = "Restart"
+            finishedTimers.remove(atIndex: timerRowIndex!)
+            timersTableView.reloadData()
         }
     }
     
-    func didTapLeftActionView(forCell cell: TimerTableViewCell) {
+    func didTapSecondaryActionView(forCell cell: TimerTableViewCell) {
         let indexPath = timersTableView.indexPath(for: cell)
-        let timerIndex = indexPath?.row
-        let timer = timersArray.element(atIndex: timerIndex!)
+        let timerRowIndex = indexPath?.row
+        var timer: MTTimer
         
-        switch timer.mode! {
-        case .Running:
-            timer.reset()
-        case .Paused:
-            timer.reset()
-            cell.rightActionView.label.text = "Pause"
-        case .Finished:
-            let timerAssociatedWithCell = self.timersArray.element(atIndex: timerIndex!)
-            timerAssociatedWithCell.displayDelegate = nil
-            self.timersArray.remove(atIndex: timerIndex!)
-            timersTableView.deleteRows(at: [indexPath!], with: .fade)
+        if finishedTimers.count != 0 && indexPath?.section == 0 {
+            timer = finishedTimers.element(atIndex: timerRowIndex!)
+        } else {
+            timer = runningTimers.element(atIndex: timerRowIndex!)
         }
+        
+        if timer.mode! == .Finished {
+            timer.reset()
+            runningTimers.append(newElement: timer)
+            finishedTimers.remove(atIndex: timerRowIndex!)
+        } else {
+            timer.displayDelegate = nil
+            runningTimers.remove(atIndex: timerRowIndex!)
+        }
+        timersTableView.reloadData()
     }
 }
 
 extension TimersViewController: UITableViewDataSource, UITableViewDelegate {
     
-    // Mark: - table view methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timersArray.count
+        if finishedTimers.count != 0 {
+            switch section {
+            case 0:
+                return finishedTimers.count
+            case 1:
+                return runningTimers.count
+            default:
+                break
+            }
+        }
+        
+        return runningTimers.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if finishedTimers.count != 0 {
+            return 2
+        }
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if finishedTimers.count != 0 {
+            switch section {
+            case 0:
+                return "Finished"
+            case 1:
+                return "Running"
+            default:
+                break
+            }
+        }
+        return ""
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = timersTableView.dequeueReusableCell(withIdentifier: "Timer Cell",
+        
+        
+        
+        var cell = timersTableView.dequeueReusableCell(withIdentifier: "Timer Cell",
                                                        for: indexPath) as! TimerTableViewCell
-        let timer = timersArray.element(atIndex: indexPath.row)
-        cell.timerNameLabel.text = timer.name
+        
+        var timer: MTTimer
+        
+        // Finished timer case
+        if finishedTimers.count != 0 && indexPath.section == 0 {
+            cell = timersTableView.dequeueReusableCell(withIdentifier: "Finished Timer Cell",
+                                                       for: indexPath) as! TimerTableViewCell
+            timer = finishedTimers.element(atIndex: indexPath.row)
+            timer.displayDelegate = nil
+            cell.primaryActionView.label.text = "Cancel"
+            cell.secondaryActionView.label.text = "Reset"
+            cell.timerCellDelegate = self
+            cell.timeRemainingLabel.text = TimeConverter.convertToString(fromSeconds: Int(timer.initialTime))
+            cell.sectionedView.sectionOrientation = .LeftRight
+            return cell
+        }
+        
+        // Running timer case
+        timer = runningTimers.element(atIndex: indexPath.row)
+        cell.primaryActionView.label.text = "Pause"
+        cell.secondaryActionView.label.text = "Cancel"
         cell.timeRemainingLabel.text = TimeConverter.convertToString(fromSeconds: timer.timeRemaining())
+        cell.timerNameLabel.text = timer.name
         cell.timerCellDelegate = self
         if timer.displayDelegate != nil {
             timer.displayDelegate = nil
         }
         timer.displayDelegate = cell.timeRemainingLabel
         
-        cell.rightActionView.label.text = "Pause"
-        cell.leftActionView.label.text = "Restart"
-        
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let timerAssociatedWithCell = self.timersArray.element(atIndex: indexPath.row)
-            timerAssociatedWithCell.displayDelegate = nil
-            self.timersArray.remove(atIndex: indexPath.row)
-            timersTableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        tableView.reloadData()
+        
     }
 }

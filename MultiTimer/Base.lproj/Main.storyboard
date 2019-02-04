@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Timer Cell" rowHeight="180" id="yx4-lW-KVv" customClass="TimerTableViewCell" customModule="MultiTimer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Timer Cell" rowHeight="180" id="yx4-lW-KVv" userLabel="Running Timer Cell" customClass="TimerTableViewCell" customModule="MultiTimer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yx4-lW-KVv" id="KJM-Lw-ZMA">
@@ -47,7 +47,7 @@
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </stackView>
-                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmb-Sn-qMx" customClass="TimerCellActionStyleView" customModule="MultiTimer" customModuleProvider="target">
+                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmb-Sn-qMx" customClass="SectionedView" customModule="MultiTimer" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="110.5" width="345" height="47.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
@@ -103,10 +103,88 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="leftActionView" destination="trf-Xs-Ian" id="6st-wN-4Ug"/>
-                                            <outlet property="rightActionView" destination="ajX-SJ-vYA" id="XPh-u2-WmN"/>
+                                            <outlet property="primaryActionView" destination="ajX-SJ-vYA" id="XPh-u2-WmN"/>
+                                            <outlet property="secondaryActionView" destination="trf-Xs-Ian" id="6st-wN-4Ug"/>
+                                            <outlet property="sectionedView" destination="Wmb-Sn-qMx" id="Zva-nh-PUD"/>
                                             <outlet property="timeRemainingLabel" destination="Pj0-sr-dAg" id="NQZ-i1-cFy"/>
                                             <outlet property="timerNameLabel" destination="vq8-1w-Qc4" id="h3M-q7-KTM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Finished Timer Cell" rowHeight="118" id="Ot9-Is-cdG" customClass="TimerTableViewCell" customModule="MultiTimer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="208" width="375" height="118"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ot9-Is-cdG" id="Equ-f7-5rc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kk6-eS-Z1G" customClass="CellBackgroundView" customModule="MultiTimer" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="8" width="345" height="102"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfV-g1-qwr">
+                                                            <rect key="frame" x="8" y="0.0" width="329" height="0.0"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxI-j7-B3T" customClass="TimerLabel" customModule="MultiTimer" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="20" width="230.5" height="62"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qph-pf-7c5" customClass="SectionedView" customModule="MultiTimer" customModuleProvider="target">
+                                                            <rect key="frame" x="258.5" y="0.0" width="86.5" height="102"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Bt-J5-KPO" customClass="TimerActionView" customModule="MultiTimer" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="86.5" height="51"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMb-kq-QRC" customClass="TimerActionView" customModule="MultiTimer" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="51" width="86.5" height="51"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </view>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="iMb-kq-QRC" firstAttribute="leading" secondItem="Qph-pf-7c5" secondAttribute="leading" id="7CO-Aa-luo"/>
+                                                                <constraint firstItem="6Bt-J5-KPO" firstAttribute="top" secondItem="Qph-pf-7c5" secondAttribute="top" id="8fq-wN-nNX"/>
+                                                                <constraint firstItem="6Bt-J5-KPO" firstAttribute="height" secondItem="Qph-pf-7c5" secondAttribute="height" multiplier="0.5" id="BR2-kD-Hmz"/>
+                                                                <constraint firstAttribute="bottom" secondItem="iMb-kq-QRC" secondAttribute="bottom" id="FQG-Ve-yfQ"/>
+                                                                <constraint firstItem="iMb-kq-QRC" firstAttribute="top" secondItem="6Bt-J5-KPO" secondAttribute="bottom" id="b0e-0j-dOl"/>
+                                                                <constraint firstItem="6Bt-J5-KPO" firstAttribute="leading" secondItem="Qph-pf-7c5" secondAttribute="leading" id="vq7-ul-i7f"/>
+                                                                <constraint firstAttribute="trailing" secondItem="iMb-kq-QRC" secondAttribute="trailing" id="w9g-qt-lXk"/>
+                                                                <constraint firstAttribute="trailing" secondItem="6Bt-J5-KPO" secondAttribute="trailing" id="wsG-RT-aLJ"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="rfV-g1-qwr" secondAttribute="trailing" constant="8" id="1ry-9x-0Sb"/>
+                                                        <constraint firstItem="rfV-g1-qwr" firstAttribute="leading" secondItem="kk6-eS-Z1G" secondAttribute="leading" constant="8" id="5Kx-N3-XHf"/>
+                                                        <constraint firstItem="DxI-j7-B3T" firstAttribute="top" secondItem="kk6-eS-Z1G" secondAttribute="top" constant="20" id="5hn-dy-A9P"/>
+                                                        <constraint firstItem="Qph-pf-7c5" firstAttribute="top" secondItem="kk6-eS-Z1G" secondAttribute="top" id="6uc-m9-24w"/>
+                                                        <constraint firstItem="Qph-pf-7c5" firstAttribute="leading" secondItem="DxI-j7-B3T" secondAttribute="trailing" constant="8" id="K8p-8l-JVR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Qph-pf-7c5" secondAttribute="trailing" id="dJd-rM-9fc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Qph-pf-7c5" secondAttribute="bottom" id="gKe-1s-LBp"/>
+                                                        <constraint firstItem="rfV-g1-qwr" firstAttribute="top" secondItem="kk6-eS-Z1G" secondAttribute="top" id="iWM-KO-2WR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="DxI-j7-B3T" secondAttribute="bottom" constant="20" id="rsL-TC-h7M"/>
+                                                        <constraint firstItem="DxI-j7-B3T" firstAttribute="leading" secondItem="kk6-eS-Z1G" secondAttribute="leading" constant="20" symbolic="YES" id="zby-8z-Ou9"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kk6-eS-Z1G" firstAttribute="leading" secondItem="Equ-f7-5rc" secondAttribute="leading" constant="15" id="9uP-RX-be0"/>
+                                                <constraint firstItem="kk6-eS-Z1G" firstAttribute="top" secondItem="Equ-f7-5rc" secondAttribute="top" constant="8" id="Me3-WY-o0w"/>
+                                                <constraint firstAttribute="trailing" secondItem="kk6-eS-Z1G" secondAttribute="trailing" constant="15" id="Spd-Ur-sHR"/>
+                                                <constraint firstAttribute="bottom" secondItem="kk6-eS-Z1G" secondAttribute="bottom" constant="8" id="WnQ-am-5r0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="primaryActionView" destination="6Bt-J5-KPO" id="F0v-WA-Pkf"/>
+                                            <outlet property="secondaryActionView" destination="iMb-kq-QRC" id="Dki-ux-Yk4"/>
+                                            <outlet property="sectionedView" destination="Qph-pf-7c5" id="V22-ei-wZH"/>
+                                            <outlet property="timeRemainingLabel" destination="DxI-j7-B3T" id="4aC-D2-GxU"/>
+                                            <outlet property="timerNameLabel" destination="rfV-g1-qwr" id="atx-Ba-cxc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -150,7 +228,7 @@
         <!--Favorites-->
         <scene sceneID="MsL-Ep-qcP">
             <objects>
-                <viewController id="aj9-Q5-YfD" sceneMemberID="viewController">
+                <viewController id="aj9-Q5-YfD" customClass="FavoritesViewController" customModule="MultiTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5sM-wd-R8K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,18 +238,17 @@
                     <navigationItem key="navigationItem" title="Favorites" id="f5H-oE-VWi">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="rc8-vk-YlY">
                             <connections>
-                                <segue destination="QtA-4O-slw" kind="unwind" unwindAction="unwindFromCancel:" id="voj-IA-dDX"/>
+                                <action selector="doneBarButtonTapped:" destination="aj9-Q5-YfD" id="suX-Iy-vrS"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tiC-Dn-gzw">
                             <connections>
-                                <segue destination="DaF-kA-8nE" kind="presentation" id="b59-6H-Bv6"/>
+                                <segue destination="DaF-kA-8nE" kind="presentation" identifier="Create Fav Timer" id="b59-6H-Bv6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2B-NB-tcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="QtA-4O-slw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1822" y="933"/>
         </scene>
@@ -336,7 +413,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTP-ii-G9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2567" y="187"/>
+            <point key="canvasLocation" x="2569" y="187"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7B8-zo-mfK">

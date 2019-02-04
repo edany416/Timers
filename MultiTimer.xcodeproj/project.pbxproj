@@ -10,7 +10,6 @@
 		8C01C7B821E2A63300B5719F /* TimerActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01C7B721E2A63300B5719F /* TimerActionView.swift */; };
 		8C01C7BA21E300D400B5719F /* CellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01C7B921E300D400B5719F /* CellBackgroundView.swift */; };
 		8C01C7BC21E3CED500B5719F /* TimerActionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01C7BB21E3CED500B5719F /* TimerActionViewDelegate.swift */; };
-		8C01C7BE21E3F33C00B5719F /* TimerCellActionStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01C7BD21E3F33C00B5719F /* TimerCellActionStyleView.swift */; };
 		8C01C7C021E401B400B5719F /* DataPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01C7BF21E401B400B5719F /* DataPersistenceService.swift */; };
 		8C01C7C221E5409400B5719F /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C01C7C121E5409400B5719F /* PropertyKeys.swift */; };
 		8C39FC752147189600347930 /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C39FC742147189600347930 /* TimeConverter.swift */; };
@@ -22,27 +21,23 @@
 		8C43EFE5212E21EC0012577A /* MTTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43EFE4212E21EC0012577A /* MTTimer.swift */; };
 		8C43EFEB212E39900012577A /* TimeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43EFEA212E39900012577A /* TimeArray.swift */; };
 		8C43F00A21372FAF0012577A /* TimersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F00921372FAF0012577A /* TimersViewController.swift */; };
-		8C43F00C213733700012577A /* AddTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F00B213733700012577A /* AddTimerViewController.swift */; };
 		8C43F00E213733FB0012577A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F00D213733FB0012577A /* Constants.swift */; };
 		8C43F0152137B39F0012577A /* TimerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F0142137B39F0012577A /* TimerCellDelegate.swift */; };
 		8C43F01D213907C40012577A /* TimerDisplayDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F01C213907C40012577A /* TimerDisplayDelegate.swift */; };
 		8C43F01F213909190012577A /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F01E213909190012577A /* TimerLabel.swift */; };
-		8C43F036213CF4140012577A /* UnderlinedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43F035213CF4140012577A /* UnderlinedView.swift */; };
 		8C4AA16B21DECAA000E9C3B0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4AA16A21DECAA000E9C3B0 /* FavoritesViewController.swift */; };
-		8C4D22C021CF2BF3002BBC96 /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D22BF21CF2BF3002BBC96 /* RoundShadowView.swift */; };
-		8C4D22C221D0551F002BBC96 /* leftBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D22C121D0551F002BBC96 /* leftBorderView.swift */; };
 		8C4D22CE21D5F4A0002BBC96 /* TimerPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D22CD21D5F4A0002BBC96 /* TimerPickerViewController.swift */; };
 		8CB2606A2150CC2200A07D7A /* TopBottomBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB260692150CC2200A07D7A /* TopBottomBorderView.swift */; };
 		8CBE57BE21CDA41E00D49783 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBE57BD21CDA41E00D49783 /* TimerTableViewCell.swift */; };
 		8CDC054F21518D2F00A70EB7 /* AlarmRepeating.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC054E21518D2F00A70EB7 /* AlarmRepeating.aiff */; };
 		8CDC055121518DBF00A70EB7 /* AlarmRepeating.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC055021518DBF00A70EB7 /* AlarmRepeating.mp3 */; };
+		8CF07D272208AA53005BE481 /* SectionedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF07D262208AA53005BE481 /* SectionedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C01C7B721E2A63300B5719F /* TimerActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerActionView.swift; sourceTree = "<group>"; };
 		8C01C7B921E300D400B5719F /* CellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellBackgroundView.swift; sourceTree = "<group>"; };
 		8C01C7BB21E3CED500B5719F /* TimerActionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerActionViewDelegate.swift; sourceTree = "<group>"; };
-		8C01C7BD21E3F33C00B5719F /* TimerCellActionStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCellActionStyleView.swift; sourceTree = "<group>"; };
 		8C01C7BF21E401B400B5719F /* DataPersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPersistenceService.swift; sourceTree = "<group>"; };
 		8C01C7C121E5409400B5719F /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
 		8C39FC742147189600347930 /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
@@ -56,20 +51,17 @@
 		8C43EFE4212E21EC0012577A /* MTTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTTimer.swift; sourceTree = "<group>"; };
 		8C43EFEA212E39900012577A /* TimeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeArray.swift; sourceTree = "<group>"; };
 		8C43F00921372FAF0012577A /* TimersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimersViewController.swift; sourceTree = "<group>"; };
-		8C43F00B213733700012577A /* AddTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimerViewController.swift; sourceTree = "<group>"; };
 		8C43F00D213733FB0012577A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C43F0142137B39F0012577A /* TimerCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCellDelegate.swift; sourceTree = "<group>"; };
 		8C43F01C213907C40012577A /* TimerDisplayDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplayDelegate.swift; sourceTree = "<group>"; };
 		8C43F01E213909190012577A /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
-		8C43F035213CF4140012577A /* UnderlinedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedView.swift; sourceTree = "<group>"; };
 		8C4AA16A21DECAA000E9C3B0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		8C4D22BF21CF2BF3002BBC96 /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
-		8C4D22C121D0551F002BBC96 /* leftBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leftBorderView.swift; sourceTree = "<group>"; };
 		8C4D22CD21D5F4A0002BBC96 /* TimerPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPickerViewController.swift; sourceTree = "<group>"; };
 		8CB260692150CC2200A07D7A /* TopBottomBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBottomBorderView.swift; sourceTree = "<group>"; };
 		8CBE57BD21CDA41E00D49783 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
 		8CDC054E21518D2F00A70EB7 /* AlarmRepeating.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = AlarmRepeating.aiff; sourceTree = "<group>"; };
 		8CDC055021518DBF00A70EB7 /* AlarmRepeating.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AlarmRepeating.mp3; sourceTree = "<group>"; };
+		8CF07D262208AA53005BE481 /* SectionedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,15 +134,12 @@
 		8C43EFEE212E3BE40012577A /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				8C43F035213CF4140012577A /* UnderlinedView.swift */,
 				8CB260692150CC2200A07D7A /* TopBottomBorderView.swift */,
 				8C43F01E213909190012577A /* TimerLabel.swift */,
 				8CBE57BD21CDA41E00D49783 /* TimerTableViewCell.swift */,
-				8C4D22BF21CF2BF3002BBC96 /* RoundShadowView.swift */,
-				8C4D22C121D0551F002BBC96 /* leftBorderView.swift */,
 				8C01C7B721E2A63300B5719F /* TimerActionView.swift */,
 				8C01C7B921E300D400B5719F /* CellBackgroundView.swift */,
-				8C01C7BD21E3F33C00B5719F /* TimerCellActionStyleView.swift */,
+				8CF07D262208AA53005BE481 /* SectionedView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -161,7 +150,6 @@
 				8C43F00921372FAF0012577A /* TimersViewController.swift */,
 				8C4AA16A21DECAA000E9C3B0 /* FavoritesViewController.swift */,
 				8C4D22CD21D5F4A0002BBC96 /* TimerPickerViewController.swift */,
-				8C43F00B213733700012577A /* AddTimerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -251,26 +239,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C39FC80214752CA00347930 /* MTAlarm.swift in Sources */,
+				8CF07D272208AA53005BE481 /* SectionedView.swift in Sources */,
 				8C01C7C021E401B400B5719F /* DataPersistenceService.swift in Sources */,
 				8C4D22CE21D5F4A0002BBC96 /* TimerPickerViewController.swift in Sources */,
 				8C01C7BA21E300D400B5719F /* CellBackgroundView.swift in Sources */,
-				8C43F00C213733700012577A /* AddTimerViewController.swift in Sources */,
 				8C43EFCE212E06D10012577A /* AppDelegate.swift in Sources */,
 				8C39FC752147189600347930 /* TimeConverter.swift in Sources */,
 				8C43F01F213909190012577A /* TimerLabel.swift in Sources */,
-				8C4D22C021CF2BF3002BBC96 /* RoundShadowView.swift in Sources */,
 				8CB2606A2150CC2200A07D7A /* TopBottomBorderView.swift in Sources */,
 				8C43EFE5212E21EC0012577A /* MTTimer.swift in Sources */,
-				8C4D22C221D0551F002BBC96 /* leftBorderView.swift in Sources */,
 				8C43EFEB212E39900012577A /* TimeArray.swift in Sources */,
 				8C43F01D213907C40012577A /* TimerDisplayDelegate.swift in Sources */,
 				8C01C7C221E5409400B5719F /* PropertyKeys.swift in Sources */,
 				8C43F00A21372FAF0012577A /* TimersViewController.swift in Sources */,
-				8C01C7BE21E3F33C00B5719F /* TimerCellActionStyleView.swift in Sources */,
 				8CBE57BE21CDA41E00D49783 /* TimerTableViewCell.swift in Sources */,
 				8C43F0152137B39F0012577A /* TimerCellDelegate.swift in Sources */,
 				8C01C7B821E2A63300B5719F /* TimerActionView.swift in Sources */,
-				8C43F036213CF4140012577A /* UnderlinedView.swift in Sources */,
 				8C4AA16B21DECAA000E9C3B0 /* FavoritesViewController.swift in Sources */,
 				8C43F00E213733FB0012577A /* Constants.swift in Sources */,
 				8C01C7BC21E3CED500B5719F /* TimerActionViewDelegate.swift in Sources */,

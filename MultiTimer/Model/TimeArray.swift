@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TimerArray {
+class TimerArray:NSObject, NSCoding {
     private var timerArray = [MTTimer]()
     
     var count: Int {
@@ -17,7 +17,7 @@ class TimerArray {
         }
     }
     
-    init() {}
+    override init() {}
     
     init(_ timers: [MTTimer]) {
         self.timerArray += timers
@@ -30,7 +30,7 @@ class TimerArray {
     
     func element(atIndex index: Int) -> MTTimer {
         
-        return timerArray[index]
+         return timerArray[index]
     }
     
     func index(of timer: MTTimer) -> Int? {
@@ -51,5 +51,17 @@ class TimerArray {
     
     func remove(atIndex index: Int) {
         timerArray.remove(at: index)
+    }
+    
+    func remove(element timer: MTTimer) {
+        timerArray = timerArray.filter{$0 !== timer}
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(timerArray, forKey: PropertyKeys.timers)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.timerArray = aDecoder.decodeObject(forKey: PropertyKeys.timers) as! [MTTimer]
     }
 }
