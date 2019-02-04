@@ -12,33 +12,27 @@ class TopBottomBorderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        viewSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        viewSetup()
-    }
-    
-    private func viewSetup() {
-        self.backgroundColor = UIColor.clear
     }
     
     override func draw(_ rect: CGRect) {
         
-        let lowerBorderLine = UIBezierPath()
-        let lineColor = UIColor.white
+        let borderLine = UIBezierPath()
+        let lineColor = UIColor.gray
         lineColor.setStroke()
         let lineWidth = CGFloat(0.5)
-        lowerBorderLine.lineWidth = lineWidth
+        borderLine.lineWidth = lineWidth
         
-        lowerBorderLine.move(to: CGPoint(x: rect.minX, y: rect.maxY - lineWidth))
-        lowerBorderLine.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY - lineWidth))
-        lowerBorderLine.stroke()
+        borderLine.move(to: CGPoint(x: rect.minX, y: rect.maxY - lineWidth))
+        borderLine.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY - lineWidth))
+        borderLine.stroke()
         
-        lowerBorderLine.move(to: CGPoint(x: rect.minX, y: rect.minY+lineWidth))
-        lowerBorderLine.addLine(to: CGPoint(x: rect.maxX, y: rect.minY+lineWidth))
-        lowerBorderLine.stroke()
+        borderLine.move(to: CGPoint(x: rect.minX, y: rect.minY+lineWidth))
+        borderLine.addLine(to: CGPoint(x: rect.maxX, y: rect.minY+lineWidth))
+        borderLine.stroke()
         
     }
 }

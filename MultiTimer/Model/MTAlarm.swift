@@ -12,18 +12,19 @@ import UserNotifications
 class MTAlarm: NSObject, UNUserNotificationCenterDelegate {
 
     let center = UNUserNotificationCenter.current()
-    var content = UNMutableNotificationContent()
     let uuidStringIdentifier = UUID().uuidString
-    
+    var content = UNMutableNotificationContent()
+
     override init() {
         super.init()
         center.requestAuthorization(options: [.alert, .sound]) { (result, error) in }
         center.delegate = self
         content.title = "Timer(s) Up!"
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
     }
     
     deinit {
+        print("Alarm Killed")
         center.removeAllPendingNotificationRequests()
     }
     
