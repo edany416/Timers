@@ -22,12 +22,11 @@ class CellBackgroundView: UIView {
     
     private func setup() {
         
-        self.backgroundColor = #colorLiteral(red: 0.2039215686, green: 0.2039215686, blue: 0.2039215686, alpha: 1)
-        self.layer.cornerRadius = 15.0
+        self.backgroundColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.layer.cornerRadius = 5.0
         self.clipsToBounds = true
 
     }
-    
 
     /*
     // Only override draw() if you perform custom drawing.

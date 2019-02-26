@@ -12,15 +12,36 @@ import UserNotifications
 
 class TimersViewController: UIViewController, TimerPickerDelegate {
     
+    @IBOutlet weak var favoritesViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var timersTableView: UITableView!
+    @IBOutlet weak var favoritesCollectionView: UICollectionView!
+    
+    private var favoritesExpanded = false
     private var runningTimers = TimerArray()
     private var finishedTimers = TimerArray()
+    private var favoriteTimers = TimerArray()
+    
+    private var riceTimer = MTTimer(fromTimeInterval: 1080.0, name: "Rice")
+    private var pastaTimer = MTTimer(fromTimeInterval: 300.0, name: "Pasta")
+    private var eggsTimer = MTTimer(fromTimeInterval: 720.0, name: "Eggs")
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         timersTableView.dataSource = self
         timersTableView.delegate = self
+        
+        favoritesCollectionView.dataSource = self
+        favoritesCollectionView.delegate = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleTimerFinishedNotificaton(_:)), name: Notification.Name(timerFinishedNotification), object: nil)
+        favoritesViewHeightConstraint.constant = 0.0
+        
+        favoriteTimers.append(newElement: riceTimer)
+        favoriteTimers.append(newElement: pastaTimer)
+        favoriteTimers.append(newElement: eggsTimer)
+        
     }
 
     @objc private func handleTimerFinishedNotificaton(_ notfication: Notification) {
@@ -35,13 +56,27 @@ class TimersViewController: UIViewController, TimerPickerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        timersTableView.reloadData()
     }
 
     // Mark: - TimerPicker Delegate method
     func timerCreated(_ timer: MTTimer) {
         runningTimers.append(newElement: timer)
+        timersTableView.reloadData()
     }
+    
+    @IBAction func favoritesTapped(_ sender: UIBarButtonItem) {
+        if !favoritesExpanded {
+            favoritesViewHeightConstraint.constant = self.view.frame.height * 0.20
+            favoritesExpanded = true
+        } else {
+            favoritesViewHeightConstraint.constant = 0.0
+            favoritesExpanded = false
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,6 +85,15 @@ class TimersViewController: UIViewController, TimerPickerDelegate {
             if let destVC = navVC.topViewController as? TimerPickerViewController {
                 destVC.timerPickerDelegate = self
                 destVC.endActionBarButton.title = "Start"
+            }
+        }
+        
+        if segue.identifier == "Add Fav Segue" {
+            let navVC = segue.destination as! UINavigationController
+            if let destVC = navVC.topViewController as? TimerPickerViewController {
+                destVC.timerPickerDelegate = self
+                destVC.endActionBarButton.title = "Save"
+                destVC.nameRequired = true
             }
         }
     }
@@ -97,6 +141,7 @@ extension TimersViewController: TimerCellDelegate {
             runningTimers.append(newElement: timer)
             finishedTimers.remove(atIndex: timerRowIndex!)
         } else {
+            timer.end()
             timer.displayDelegate = nil
             runningTimers.remove(atIndex: timerRowIndex!)
         }
@@ -144,8 +189,6 @@ extension TimersViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        
         var cell = timersTableView.dequeueReusableCell(withIdentifier: "Timer Cell",
                                                        for: indexPath) as! TimerTableViewCell
         
@@ -176,8 +219,35 @@ extension TimersViewController: UITableViewDataSource, UITableViewDelegate {
             timer.displayDelegate = nil
         }
         timer.displayDelegate = cell.timeRemainingLabel
+        timer.initTimer()
         
         return cell
         
     }
 }
+
+extension TimersViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return favoriteTimers.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Fav Cell", for: indexPath) as! FavoriteTimerCollectionViewCell
+        
+        let timer = favoriteTimers.element(atIndex: indexPath.row)
+        cell.nameLabel.text = timer.name
+        cell.timeLabel.text = TimeConverter.convertToString(fromSeconds: Int(timer.initialTime))
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let timer = MTTimer(fromTimer: favoriteTimers.element(atIndex: indexPath.row))
+        runningTimers.append(newElement: timer)
+        timersTableView.reloadData()
+    }
+    
+    
+}
+

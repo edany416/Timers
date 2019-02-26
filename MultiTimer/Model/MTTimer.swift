@@ -36,10 +36,16 @@ class MTTimer: NSObject, NSCoding {
         name = timerName
         initialTime = timeInterval
         timeRemainingWithInterruption = timeInterval
-        initTimer()
+//        initTimer()
     }
-
-    private func initTimer() {
+    
+    init(fromTimer timer: MTTimer) {
+        self.name = timer.name
+        self.initialTime = timer.initialTime
+        self.timeRemainingWithInterruption = timer.initialTime
+    }
+    
+    func initTimer() {
         mode = .Running
         timer = Timer()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerTicked), userInfo: nil, repeats: true)
@@ -75,6 +81,11 @@ class MTTimer: NSObject, NSCoding {
         timer.invalidate()
         mode = .Finished
         NotificationCenter.default.post(name: Notification.Name(rawValue: timerFinishedNotification), object: self)
+    }
+    
+    func end() {
+        alarm.cancelPendingAlarm()
+        timer.invalidate()
     }
     
     func pause() {
