@@ -36,22 +36,12 @@ class MTTimer: NSObject, NSCoding {
         name = timerName
         initialTime = timeInterval
         timeRemainingWithInterruption = timeInterval
-//        initTimer()
     }
     
     init(fromTimer timer: MTTimer) {
         self.name = timer.name
         self.initialTime = timer.initialTime
         self.timeRemainingWithInterruption = timer.initialTime
-    }
-    
-    func initTimer() {
-        mode = .Running
-        timer = Timer()
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerTicked), userInfo: nil, repeats: true)
-        alarm.triggerAlarmAfter(timerInterval: timeRemainingWithInterruption)
-        latestStartTime = NSDate().timeIntervalSince1970
-        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
     @objc private func timerTicked() {
@@ -83,6 +73,15 @@ class MTTimer: NSObject, NSCoding {
         NotificationCenter.default.post(name: Notification.Name(rawValue: timerFinishedNotification), object: self)
     }
     
+    func start() {
+        mode = .Running
+        timer = Timer()
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerTicked), userInfo: nil, repeats: true)
+        alarm.triggerAlarmAfter(timerInterval: timeRemainingWithInterruption)
+        latestStartTime = NSDate().timeIntervalSince1970
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
+    }
+    
     func end() {
         alarm.cancelPendingAlarm()
         timer.invalidate()
@@ -97,14 +96,14 @@ class MTTimer: NSObject, NSCoding {
     func resume() {
         timeRemainingWithInterruption = timeRemainingWithInterruption - elapsedTimeSinceLastStart
         elapsedTimeSinceLastStart = 0.0
-        initTimer()
+        start()
     }
     
     func reset() {
         timer.invalidate()
         elapsedTimeSinceLastStart = 0.0
         timeRemainingWithInterruption = initialTime
-        initTimer()
+        start()
     }
     
     static func == (lhs: MTTimer, rhs: MTTimer) -> Bool {

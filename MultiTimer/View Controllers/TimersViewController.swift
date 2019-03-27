@@ -46,11 +46,11 @@ class TimersViewController: UIViewController, TimerPickerDelegate {
 
     @objc private func handleTimerFinishedNotificaton(_ notfication: Notification) {
         if let timer = notfication.object as? MTTimer {
-            timer.mode! = .Finished
-            timer.displayDelegate = nil
-            runningTimers.remove(element: timer)
-            finishedTimers.append(newElement: timer)
-            timersTableView.reloadData()
+                timer.mode! = .Finished
+                timer.displayDelegate = nil
+                runningTimers.remove(element: timer)
+                finishedTimers.append(newElement: timer)
+                timersTableView.reloadData()            
         }
     }
     
@@ -195,6 +195,7 @@ extension TimersViewController: UITableViewDataSource, UITableViewDelegate {
         var timer: MTTimer
         
         // Finished timer case
+        print("Finished timers count \(finishedTimers.count)")
         if finishedTimers.count != 0 && indexPath.section == 0 {
             cell = timersTableView.dequeueReusableCell(withIdentifier: "Finished Timer Cell",
                                                        for: indexPath) as! TimerTableViewCell
@@ -219,7 +220,7 @@ extension TimersViewController: UITableViewDataSource, UITableViewDelegate {
             timer.displayDelegate = nil
         }
         timer.displayDelegate = cell.timeRemainingLabel
-        timer.initTimer()
+        timer.start()
         
         return cell
         
