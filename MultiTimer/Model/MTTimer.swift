@@ -16,37 +16,37 @@ enum TimerMode {
 }
 
 let timerFinishedNotification = "com.z3dd.timerFinishedNotification"
+let timerUpdatedNotification = "com.z3dd.timerUpdatedNotification"
 
-class MTTimer: NSObject, NSCoding {
+class MTTimer: NSObject {
     
-    var displayDelegate: TimerDisplayDelegate?
     var initialTime: TimeInterval!
-    var mode: TimerMode!
     var name: String?
+    var timeRemaining: Int {
+        if mode == .Finished {
+            return 0
+        }
+        let roundedTimeRemaining = (timeRemainingWithInterruption - elapsedTimeSinceLastStart).rounded(.up)
+        return Int(roundedTimeRemaining)
+    }
+    var timerMode: TimerMode {
+        return mode
+    }
     
     private var timeRemainingWithInterruption: TimeInterval!
     private var latestStartTime: TimeInterval!
     private var alarm = MTAlarm()
+    private var mode: TimerMode!
     private var timer: Timer!
     
     
+    let timerID = UUID().uuidString
     
     init(fromTimeInterval timeInterval: TimeInterval, name timerName: String?) {
         super.init()
         name = timerName
         initialTime = timeInterval
         timeRemainingWithInterruption = timeInterval
-    }
-    
-    init(fromTimer timer: MTTimer) {
-        self.name = timer.name
-        self.initialTime = timer.initialTime
-        self.timeRemainingWithInterruption = timer.initialTime
-    }
-    
-    @objc private func timerTicked() {
-        updateTimerState()
-        displayDelegate?.timerUpdated(toTime: timeRemaining())
     }
     
     private var elapsedTimeSinceLastStart: TimeInterval = 0.0
@@ -59,18 +59,15 @@ class MTTimer: NSObject, NSCoding {
         }
     }
     
-    func timeRemaining() -> Int {
-        if mode == .Finished {
-            return 0
-        }
-        let roundedTimeRemaining = (timeRemainingWithInterruption - elapsedTimeSinceLastStart).rounded(.up)
-        return Int(roundedTimeRemaining)
-    }
-    
     private func endTimer() {
         timer.invalidate()
         mode = .Finished
         NotificationCenter.default.post(name: Notification.Name(rawValue: timerFinishedNotification), object: self)
+    }
+    
+    @objc private func timerTicked() {
+        updateTimerState()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: timerUpdatedNotification), object: self)
     }
     
     func start() {
@@ -107,22 +104,6 @@ class MTTimer: NSObject, NSCoding {
     }
     
     static func == (lhs: MTTimer, rhs: MTTimer) -> Bool {
-        return lhs.timeRemaining() == rhs.timeRemaining()
+        return lhs.timerID == rhs.timerID
     }
-    
-    static func < (lhs: MTTimer, rhs: MTTimer) -> Bool {
-        return lhs.timeRemaining() < rhs.timeRemaining()
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(name, forKey: PropertyKeys.name)
-//        aCoder.encode(mode, forKey: PropertyKeys.mode)
-        
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        self.name = aDecoder.decodeObject(forKey: PropertyKeys.name) as? String
-//        self.mode = (aDecoder.decodeObject(forKey: PropertyKeys.mode) as! TimerMode)
-    }
-    
 }

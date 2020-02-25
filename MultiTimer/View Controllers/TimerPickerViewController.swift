@@ -51,6 +51,7 @@ class TimerPickerViewController: UIViewController {
                 delegate.timerCreated(MTTimer(fromTimeInterval: totalTimeInSeconds, name: self.timerNameTextField.text))
             }
             timerNameTextField.resignFirstResponder()
+            timerPickerDelegate = nil
             dismiss(animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Missing Data", message: "Some required data is missing", preferredStyle: .alert)

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DZI-31-O4J">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DZI-31-O4J">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +13,11 @@
             <objects>
                 <viewController id="kh5-5f-Xgu" customClass="TimersViewController" customModule="MultiTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jYK-sn-PzQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UEk-53-dzB">
-                                <rect key="frame" x="0.0" y="110" width="375" height="493"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -33,7 +31,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZX7-Gp-1Dq" userLabel="Root" customClass="CellBackgroundView" customModule="MultiTimer" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="359" height="164"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="C6N-3m-ZNl" customClass="Timer">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="C6N-3m-ZNl">
                                                             <rect key="frame" x="0.0" y="115" width="359" height="49"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trf-Xs-Ian" customClass="TimerActionView" customModule="MultiTimer" customModuleProvider="target">
@@ -60,7 +58,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-1w-Qc4">
-                                                                    <rect key="frame" x="8" y="5" width="351" height="24"/>
+                                                                    <rect key="frame" x="8" y="5" width="351" height="26.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -103,8 +101,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="primaryActionView" destination="ajX-SJ-vYA" id="XPh-u2-WmN"/>
-                                            <outlet property="secondaryActionView" destination="trf-Xs-Ian" id="6st-wN-4Ug"/>
+                                            <outlet property="cancelActionView" destination="trf-Xs-Ian" id="6st-wN-4Ug"/>
+                                            <outlet property="resumePauseActionView" destination="ajX-SJ-vYA" id="XPh-u2-WmN"/>
                                             <outlet property="sectionedView" destination="Wmb-Sn-qMx" id="Zva-nh-PUD"/>
                                             <outlet property="timeRemainingLabel" destination="Pj0-sr-dAg" id="NQZ-i1-cFy"/>
                                             <outlet property="timerNameLabel" destination="vq8-1w-Qc4" id="h3M-q7-KTM"/>
@@ -180,8 +178,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="primaryActionView" destination="6Bt-J5-KPO" id="F0v-WA-Pkf"/>
-                                            <outlet property="secondaryActionView" destination="iMb-kq-QRC" id="Dki-ux-Yk4"/>
+                                            <outlet property="cancelActionView" destination="iMb-kq-QRC" id="Dki-ux-Yk4"/>
+                                            <outlet property="resumePauseActionView" destination="6Bt-J5-KPO" id="F0v-WA-Pkf"/>
                                             <outlet property="sectionedView" destination="Qph-pf-7c5" id="V22-ei-wZH"/>
                                             <outlet property="timeRemainingLabel" destination="DxI-j7-B3T" id="4aC-D2-GxU"/>
                                             <outlet property="timerNameLabel" destination="rfV-g1-qwr" id="atx-Ba-cxc"/>
@@ -189,93 +187,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbU-1d-SdB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
-                                <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMU-b7-BaU">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="110"/>
-                                        <color key="backgroundColor" red="0.21960784310000001" green="0.70588235290000001" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="  Add  "/>
-                                        <connections>
-                                            <segue destination="DaF-kA-8nE" kind="presentation" identifier="Add Fav Segue" id="sIV-Xb-g85"/>
-                                        </connections>
-                                    </button>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T9l-RG-c3O">
-                                        <rect key="frame" x="44" y="0.0" width="331" height="110"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="plB-ZY-1V3">
-                                            <size key="itemSize" width="115" height="110"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Fav Cell" id="kSJ-Rl-Sfi" customClass="FavoriteTimerCollectionViewCell" customModule="MultiTimer" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="115" height="110"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="115" height="110"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXx-J9-8nb">
-                                                            <rect key="frame" x="0.0" y="32" width="115" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUE-gQ-c08">
-                                                            <rect key="frame" x="17" y="61" width="80" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </view>
-                                                <size key="customSize" width="115" height="110"/>
-                                                <connections>
-                                                    <outlet property="nameLabel" destination="kXx-J9-8nb" id="6zl-GS-fJZ"/>
-                                                    <outlet property="timeLabel" destination="tUE-gQ-c08" id="obh-p2-X4p"/>
-                                                </connections>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.86274509799999999" green="0.1960784314" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="RMU-b7-BaU" secondAttribute="bottom" id="023-Y4-sWr"/>
-                                    <constraint firstAttribute="trailing" secondItem="T9l-RG-c3O" secondAttribute="trailing" id="4df-Zp-sVv"/>
-                                    <constraint firstItem="T9l-RG-c3O" firstAttribute="leading" secondItem="RMU-b7-BaU" secondAttribute="trailing" id="G4O-9e-25c"/>
-                                    <constraint firstAttribute="bottom" secondItem="T9l-RG-c3O" secondAttribute="bottom" id="NKu-RB-Zag"/>
-                                    <constraint firstItem="RMU-b7-BaU" firstAttribute="leading" secondItem="MbU-1d-SdB" secondAttribute="leading" id="gfv-mt-gr1"/>
-                                    <constraint firstAttribute="height" constant="110" id="k1B-1I-o65"/>
-                                    <constraint firstItem="T9l-RG-c3O" firstAttribute="top" secondItem="MbU-1d-SdB" secondAttribute="top" id="wl1-ux-oH5"/>
-                                    <constraint firstItem="RMU-b7-BaU" firstAttribute="top" secondItem="MbU-1d-SdB" secondAttribute="top" id="xZQ-UN-lm8"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="UEk-53-dzB" firstAttribute="top" secondItem="MbU-1d-SdB" secondAttribute="bottom" id="3N3-ha-R1g"/>
                             <constraint firstItem="UEk-53-dzB" firstAttribute="leading" secondItem="qaZ-rH-ovZ" secondAttribute="leading" id="71z-K6-m5L"/>
                             <constraint firstItem="UEk-53-dzB" firstAttribute="bottom" secondItem="qaZ-rH-ovZ" secondAttribute="bottom" id="Adc-bb-m0D"/>
-                            <constraint firstItem="MbU-1d-SdB" firstAttribute="leading" secondItem="qaZ-rH-ovZ" secondAttribute="leading" id="GI8-kw-H7Z"/>
                             <constraint firstItem="qaZ-rH-ovZ" firstAttribute="bottom" secondItem="UEk-53-dzB" secondAttribute="bottom" id="PdZ-yo-cPl"/>
                             <constraint firstItem="UEk-53-dzB" firstAttribute="leading" secondItem="qaZ-rH-ovZ" secondAttribute="leading" id="fP4-fK-Y5P"/>
-                            <constraint firstItem="MbU-1d-SdB" firstAttribute="top" secondItem="qaZ-rH-ovZ" secondAttribute="top" id="hNz-po-yNl"/>
-                            <constraint firstItem="MbU-1d-SdB" firstAttribute="trailing" secondItem="qaZ-rH-ovZ" secondAttribute="trailing" id="qIL-n6-Ssc"/>
                             <constraint firstItem="qaZ-rH-ovZ" firstAttribute="trailing" secondItem="UEk-53-dzB" secondAttribute="trailing" id="uDi-dT-Uju"/>
+                            <constraint firstItem="UEk-53-dzB" firstAttribute="top" secondItem="qaZ-rH-ovZ" secondAttribute="top" id="wKT-Fs-B8e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qaZ-rH-ovZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Timers" id="UTt-Fk-L4T">
-                        <barButtonItem key="leftBarButtonItem" title="Favs" id="WEK-8f-NSE">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="favoritesTapped:" destination="kh5-5f-Xgu" id="X6I-Ws-BMa"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pui-1x-wWq">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -284,8 +208,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="favoritesCollectionView" destination="T9l-RG-c3O" id="ydl-Wj-EEo"/>
-                        <outlet property="favoritesViewHeightConstraint" destination="k1B-1I-o65" id="YVo-1g-Cua"/>
                         <outlet property="timersTableView" destination="UEk-53-dzB" id="hnu-wd-C8N"/>
                     </connections>
                 </viewController>
@@ -298,17 +220,17 @@
             <objects>
                 <viewController id="Lm9-Fr-9I7" customClass="TimerPickerViewController" customModule="MultiTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H5g-Mc-IUn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aK-GK-ycx" userLabel="Picker/NameLabel View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="271.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mpb-yb-Xi9" userLabel="Name Label View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uhm-Hd-sbr">
-                                                <rect key="frame" x="20" y="8" width="347" height="38.5"/>
+                                                <rect key="frame" x="20" y="8" width="347" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" keyboardAppearance="alert" smartInsertDeleteType="no"/>
@@ -323,11 +245,11 @@
                                         </constraints>
                                     </view>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8f-WN-sWF">
-                                        <rect key="frame" x="0.0" y="54.5" width="375" height="187"/>
+                                        <rect key="frame" x="0.0" y="53" width="375" height="183"/>
                                         <color key="backgroundColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </pickerView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Fs-H0-X0w" userLabel="HMS View" customClass="TopBottomBorderView" customModule="MultiTimer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="241.5" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="236" width="375" height="30"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vSO-Xg-sAU" userLabel="HMS Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -418,7 +340,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DZI-31-O4J" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Nn6-TJ-b9u">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -440,7 +362,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DaF-kA-8nE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="pPK-cK-cYZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.16862745100000001" green="0.16862745100000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -457,7 +379,4 @@
             <point key="canvasLocation" x="2569" y="187"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="sIV-Xb-g85"/>
-    </inferredMetricsTieBreakers>
 </document>

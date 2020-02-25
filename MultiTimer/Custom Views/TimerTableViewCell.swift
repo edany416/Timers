@@ -12,8 +12,8 @@ class TimerTableViewCell: UITableViewCell, TimerActionViewDelegate {
     
     @IBOutlet weak var timeRemainingLabel: TimerLabel!
     @IBOutlet weak var timerNameLabel: UILabel!
-    @IBOutlet weak var primaryActionView: TimerActionView!
-    @IBOutlet weak var secondaryActionView: TimerActionView!
+    @IBOutlet weak var resumePauseActionView: TimerActionView!
+    @IBOutlet weak var cancelActionView: TimerActionView!
     @IBOutlet weak var sectionedView: SectionedView!
     
     
@@ -29,17 +29,17 @@ class TimerTableViewCell: UITableViewCell, TimerActionViewDelegate {
     }
     
     private func setup() {
-        primaryActionView.timerActionViewDelegate = self
-        secondaryActionView.timerActionViewDelegate = self
+        resumePauseActionView.timerActionViewDelegate = self
+        cancelActionView.timerActionViewDelegate = self
     }
     
     func didTapActionView(_ actionView: TimerActionView) {
-        if actionView === primaryActionView {
-            timerCellDelegate?.didTapPrimaryActionView(forCell: self)
+        if actionView === resumePauseActionView {
+            timerCellDelegate?.didTapPauseResumeButton(forCell: self)
         }
         
-        if actionView === secondaryActionView {
-            timerCellDelegate?.didTapSecondaryActionView(forCell: self)
+        if actionView === cancelActionView {
+            timerCellDelegate?.didTapCancelButton(forCell: self)
         }
     }
 }

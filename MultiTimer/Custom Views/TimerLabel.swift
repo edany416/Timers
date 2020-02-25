@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimerLabel: UILabel, TimerDisplayDelegate {
+class TimerLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -17,11 +17,6 @@ class TimerLabel: UILabel, TimerDisplayDelegate {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
-    }
-    
-    func timerUpdated(toTime secondsLeft: Int) {
-        let timeString = TimeConverter.convertToString(fromSeconds: secondsLeft)
-        self.text = timeString
     }
     
     private func setup() {

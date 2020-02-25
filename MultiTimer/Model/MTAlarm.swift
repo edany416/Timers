@@ -31,7 +31,7 @@ class MTAlarm: NSObject, UNUserNotificationCenterDelegate {
     func triggerAlarmAfter(timerInterval seconds: TimeInterval) {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
         let request = UNNotificationRequest(identifier: uuidStringIdentifier, content: content, trigger: trigger)
-        center.add(request) { (error) in
+        center.add (request) { (error) in
             if error != nil {
                 print("There was una problema")
             }
